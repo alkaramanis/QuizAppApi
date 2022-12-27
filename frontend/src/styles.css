@@ -1,3 +1,5 @@
+/* ---------------- GENERAL */
+
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
 * {
   padding: 0;
@@ -12,4 +14,36 @@ body {
   line-height: 1;
   font-weight: 400;
   color: #555;
+}
+
+/* ---------------- GENERAL REUSABLE CLASSES */
+/* SECTIONS */
+.l-margin-top {
+  margin-top: 9.6rem !important;
+}
+
+/* CONTAINERS */
+.container {
+  padding: 0 3.2rem;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.grid--3-col {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid {
+  display: grid;
+  row-gap: 9.6rem;
+  column-gap: 6.4rem;
+}
+.md--margin-bottom {
+  margin-bottom: 4.2rem;
+}
+/* HEADERS-PARAGRAPHS */
+h2 {
+  font-size: 4.4rem;
+}
+.align-center {
+  text-align: center;
 }

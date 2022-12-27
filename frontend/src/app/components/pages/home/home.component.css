@@ -1,0 +1,29 @@
+.tour-img {
+  width: 100%;
+}
+.tour-details {
+  font-size: 1.8rem;
+}
+.tour-summary {
+  font-size: 1.8rem;
+  margin-bottom: 1.6rem;
+  font-weight: 600;
+}
+.tour-info {
+  padding: 3.8rem 4.6rem;
+}
+.tour-content {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 1.1rem;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+.tour-details {
+  list-style: none;
+}
+.nuclear {
+  height: 2.4rem;
+  width: 2.4rem;
+  color: #e67e22;
+  stroke-width: var(--ionicon-stroke-width, 32px);
+}
