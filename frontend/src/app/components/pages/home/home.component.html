@@ -1,8 +1,10 @@
-<app-search></app-search>
 <section class="tours l-margin-top">
   <div class="container">
-    <div class="tour-header l--margin-bottom">
+    <div class="tour-header m--margin-bottom">
       <h2 class="align-center">The best tours in the Country</h2>
+    </div>
+    <div class="search sm--margin-bottom">
+      <app-search></app-search>
     </div>
     <div class="grid grid--3-col">
       <div class="tour-content" *ngFor="let tour of tourObj">

@@ -1,1 +1,8 @@
-<p>search works!</p>
+<input
+  class="input xxsm--margin-right"
+  [(ngModel)]="searchTerm"
+  type="text"
+  placeholder="Search Tour"
+  (keyup.enter)="search(searchTerm)"
+/>
+<button class="btn" (click)="search(searchTerm)">Search</button>
