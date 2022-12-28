@@ -1,3 +1,8 @@
+/* --------COLORS
+  PRIMARY COLOR  #555;
+  FOR EMPHASISING #cf711f
+*/
+
 /* ---------------- GENERAL */
 
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
@@ -37,8 +42,17 @@ body {
   row-gap: 9.6rem;
   column-gap: 6.4rem;
 }
-.md--margin-bottom {
-  margin-bottom: 4.2rem;
+.l--margin-bottom {
+  margin-bottom: 9.6rem;
+}
+.m--margin-bottom {
+  margin-bottom: 6.4rem;
+}
+.sm--margin-bottom {
+  margin-bottom: 3.2rem;
+}
+.xxsm--margin-bottom {
+  margin-bottom: 1.8rem;
 }
 /* HEADERS-PARAGRAPHS */
 h2 {

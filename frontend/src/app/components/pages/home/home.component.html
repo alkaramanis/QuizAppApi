@@ -1,24 +1,30 @@
+<app-search></app-search>
 <section class="tours l-margin-top">
   <div class="container">
-    <div class="tour-header md--margin-bottom">
+    <div class="tour-header l--margin-bottom">
       <h2 class="align-center">The best tours in the Country</h2>
     </div>
     <div class="grid grid--3-col">
       <div class="tour-content" *ngFor="let tour of tourObj">
-        <img
-          class="tour-img"
-          src="../../../../assets/img/{{ tour.imageCover }}"
-        />
-        <div class="tour-info">
-          <div class="tour-summary">
-            <p>{{ tour.summary }}</p>
+        <a class="tour-link" routerLink="/tour-details">
+          <img
+            class="tour-img"
+            src="../../../../assets/img/{{ tour.imageCover }}"
+          />
+          <div class="tour-info">
+            <P class="tour-name xxsm--margin-bottom align-center">{{
+              tour.name
+            }}</P>
+            <div class="tour-summary">
+              <p>{{ tour.summary }}</p>
+            </div>
+            <ul class="tour-details">
+              <li>⭐ Rating: {{ tour.ratingsAverage }}</li>
+              <li>💰 Price: {{ tour.price }} €</li>
+              <li>😫 Difficulty: {{ tour.difficulty }}</li>
+            </ul>
           </div>
-          <ul class="tour-details">
-            <li>Rating: {{ tour.ratingsAverage }}</li>
-            <li>Price: {{ tour.price }} €</li>
-            <li>Difficulty: {{ tour.difficulty }}</li>
-          </ul>
-        </div>
+        </a>
       </div>
     </div>
   </div>

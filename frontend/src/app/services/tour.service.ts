@@ -9,4 +9,8 @@ export class TourService {
     return this.http.get<Tour>('http://127.0.0.1:8000/api/v1/tours');
   }
   constructor(private http: HttpClient) {}
+
+  getAllToursBySearch(value: string) {
+    return this.http.get<Tour>(`http://127.0.0.1:8000/api/v1/tours/:${value}`);
+  }
 }
