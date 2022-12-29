@@ -12,4 +12,15 @@ export class Tour {
   public summary!: string;
   public description: string;
   public imageCover!: string;
+  public id!: string;
+  public idArr: string[];
+
+  findId(name: string, TourArr: Tour[]) {
+    TourArr.forEach((tour: Tour) => {
+      if (tour.name.includes(name)) {
+        this.idArr.push(tour.id);
+      }
+    });
+    console.log(this.idArr);
+  }
 }
