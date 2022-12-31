@@ -6,12 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TourService {
-  getAll(): Observable<Tour[]> {
-    return this.http.get<Tour[]>('http://127.0.0.1:8000/api/v1/tours');
+  getAll(param = {}): Observable<Tour[]> {
+    return this.http.get<Tour[]>(`http://127.0.0.1:8000/api/v1/tours`, {
+      params: param,
+    });
   }
   constructor(private http: HttpClient) {}
 
-  getAllToursBySearch(value: string): Observable<Tour[]> {
-    return this.http.get<Tour[]>(`http://127.0.0.1:8000/api/v1/tours/${value}`);
+  getById(value: string): Observable<Tour> {
+    return this.http.get<Tour>(`http://127.0.0.1:8000/api/v1/tours/${value}`);
   }
 }

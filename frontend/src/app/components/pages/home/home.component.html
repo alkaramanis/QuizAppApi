@@ -8,7 +8,7 @@
     </div>
     <div class="grid grid--3-col">
       <div class="tour-content" *ngFor="let tour of tours">
-        <a class="tour-link" routerLink="/tour-details">
+        <a class="tour-link" routerLink="/tours/{{ tour.id }}">
           <img
             class="tour-img"
             src="../../../../assets/img/{{ tour.imageCover }}"

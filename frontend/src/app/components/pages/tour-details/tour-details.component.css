@@ -1,0 +1,61 @@
+.tour {
+  gap: 0.8rem;
+}
+.tour-description {
+  padding: 3.6rem 1.8rem;
+  border-radius: 0.6rem;
+  background-color: #f1f3f5;
+  position: relative;
+}
+.name {
+  font-weight: 600;
+  font-size: 3.4rem;
+  border-bottom: 1px solid;
+  padding-bottom: 1.2rem;
+}
+.summary {
+  font-size: 2rem;
+}
+.tour-image {
+  border-radius: 0.6rem;
+}
+.tour-details-list {
+  display: flex;
+  font-size: 2.2rem;
+  list-style: none;
+  flex-direction: column;
+  gap: 1rem;
+}
+.btn {
+  position: absolute;
+  bottom: 5%;
+  right: 50%;
+  transform: translate(50%, 0);
+  padding: 0.8rem 3.6rem;
+}
+.cart {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+.terms {
+  margin-top: 2.6rem;
+  font-size: 1.6rem;
+}
+.terms p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.full-description {
+  padding-top: 0.8rem;
+}
+.overview {
+  background-color: #f1f3f5;
+  border-radius: 0.6rem;
+  padding: 1.8rem 3.2rem;
+  font-size: 1.6rem;
+}
+.overview p {
+  line-height: 2.8rem;
+}

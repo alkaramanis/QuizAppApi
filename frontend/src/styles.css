@@ -1,5 +1,6 @@
 /* --------COLORS
-  PRIMARY COLOR  #555;
+  PRIMARY COLOR  #555, ;
+  #f1f3f5 for light shadows
   FOR EMPHASISING #e67e22 ligther
   FOR EMPHASISING #cf711f darker
 */
@@ -39,10 +40,16 @@ button {
 .grid--3-col {
   grid-template-columns: repeat(3, 1fr);
 }
+.grid--2-col {
+  grid-template-columns: repeat(2, 1fr);
+}
 .grid {
   display: grid;
   row-gap: 9.6rem;
   column-gap: 6.4rem;
+}
+.xxsm--margin-top {
+  margin-top: 1.6rem;
 }
 .l--margin-bottom {
   margin-bottom: 9.6rem;
@@ -60,6 +67,7 @@ button {
 .xxsm--margin-right {
   margin-right: 1.8rem;
 }
+
 /* HEADERS-PARAGRAPHS */
 h2 {
   font-size: 4.4rem;

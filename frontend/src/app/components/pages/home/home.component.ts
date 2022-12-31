@@ -16,11 +16,11 @@ export class HomeComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {
     let tourObservable: Observable<Tour[]>;
-    activatedRoute.params.subscribe((param) => {
-      if (param.searchTerm) {
-        this.tourObj.findId(param.searchTerm, this.tours);
-        tourObservable = this.tour.getAllToursBySearch(param.searchTerm);
-      } else tourObservable = this.tour.getAll();
+    activatedRoute.queryParams.subscribe((param) => {
+      if (Object.keys(param).length === 0) tourObservable = this.tour.getAll();
+      else {
+        tourObservable = this.tour.getAll(param);
+      }
       tourObservable.subscribe((serverTours: any) => {
         this.tours = serverTours.data.data;
       });
