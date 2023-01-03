@@ -14,4 +14,5 @@ export class Tour {
   public description: string;
   public imageCover!: string;
   public id!: string;
+  public locations: [{}];
 }

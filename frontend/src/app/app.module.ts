@@ -8,9 +8,10 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { SearchComponent } from './components/partials/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { TourDetailsComponent } from './components/pages/tour-details/tour-details.component';
+import { MapComponent } from './components/pages/map/map.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, SearchComponent, TourDetailsComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, SearchComponent, TourDetailsComponent, MapComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
