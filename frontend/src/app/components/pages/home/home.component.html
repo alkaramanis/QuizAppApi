@@ -9,10 +9,7 @@
     <div class="grid grid--3-col">
       <div class="tour-content" *ngFor="let tour of tours">
         <a class="tour-link" routerLink="/tours/{{ tour.id }}">
-          <img
-            class="tour-img"
-            src="../../../../assets/img/{{ tour.imageCover }}"
-          />
+          <img class="tour-img" [src]="path + tour.imageCover" />
           <div class="tour-info">
             <P class="tour-name xxsm--margin-bottom align-center">{{
               tour.name

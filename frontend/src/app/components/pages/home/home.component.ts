@@ -3,12 +3,14 @@ import { TourService } from 'src/app/services/tour.service';
 import { Tour } from 'src/shared/models/Tour';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { TOURS_PATH } from 'src/shared/constants/urls';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  path = TOURS_PATH;
   tours: Tour[] = [];
   tourObj: Tour;
   constructor(

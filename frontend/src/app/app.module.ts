@@ -9,10 +9,32 @@ import { SearchComponent } from './components/partials/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { TourDetailsComponent } from './components/pages/tour-details/tour-details.component';
 import { MapComponent } from './components/pages/map/map.component';
+import { LoginComponent } from './components/pages/login/login.component';
+import { LoginFormComponent } from './components/partials/login-form/login-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
+import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, SearchComponent, TourDetailsComponent, MapComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    SearchComponent,
+    TourDetailsComponent,
+    MapComponent,
+    LoginComponent,
+    LoginFormComponent,
+    DashboardComponent,
+    CartPageComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

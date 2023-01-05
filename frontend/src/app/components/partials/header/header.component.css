@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fdf2e9;
+  background-color: rgba(121, 130, 165, 0.39);
   height: 9.6rem;
   padding: 0 4.8rem;
 }
@@ -39,5 +39,5 @@
   background-color: #cf711f;
 }
 .logo {
-  height: 2.2rem;
+  height: 5.2rem;
 }
