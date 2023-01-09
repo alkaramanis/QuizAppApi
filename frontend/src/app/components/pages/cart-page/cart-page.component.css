@@ -1,0 +1,84 @@
+.cart-section {
+  padding: 9.6rem 3.2rem;
+}
+.cart-container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  flex: 3 0;
+  gap: 2rem;
+}
+.cart-list-item {
+  display: flex;
+
+  align-items: center;
+  gap: 3rem;
+  border: 1px solid rgba(211, 211, 211, 0.7);
+
+  border-radius: 6rem;
+  padding: 1.5rem 3rem;
+}
+.cart-list-item > *:not(:first-child) {
+  flex-basis: 18%;
+}
+.cart-list-item p {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.cart-list-item button {
+  outline: none;
+  opacity: 0.5;
+  padding: 0.8rem 1.6rem;
+  background-color: rgb(211, 211, 211);
+  color: black;
+  font-weight: 500;
+}
+.cart-list-item button:hover {
+  background-color: rgb(187, 184, 184);
+  cursor: pointer;
+}
+li select {
+  outline: none;
+  border: none;
+  font-size: 1.6rem;
+  border-bottom: 1px solid rgba(211, 211, 211, 0.7);
+  font-weight: 100;
+}
+.cart-img {
+  border-radius: 50%;
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+}
+.tour-price {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+/* ---------------------- */
+.checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 3;
+  height: 20rem;
+  border: 1px solid rgba(211, 211, 211, 0.7);
+  padding: 1rem;
+  border-radius: 6rem;
+}
+.delete-cart {
+  outline: none;
+  opacity: 0.5;
+  padding: 0.8rem 1.6rem;
+  background-color: rgb(211, 211, 211);
+  color: black;
+  font-weight: 500;
+}
+.checkout span {
+  font-size: 2rem;
+}

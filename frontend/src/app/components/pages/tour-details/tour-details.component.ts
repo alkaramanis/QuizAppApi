@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 import { TourService } from 'src/app/services/tour.service';
@@ -16,7 +16,8 @@ export class TourDetailsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private tourServ: TourService,
-    private cartServ: CartService
+    private cartServ: CartService,
+    private router: Router
   ) {
     let tourObservable: Observable<Tour>;
     activatedRoute.params.subscribe((param) => {
@@ -24,6 +25,7 @@ export class TourDetailsComponent implements OnInit {
         tourObservable = this.tourServ.getById(param.id);
         tourObservable.subscribe((serverTour: any) => {
           this.tour = serverTour.data.data;
+          console.log(this.tour);
         });
       }
     });
@@ -33,5 +35,6 @@ export class TourDetailsComponent implements OnInit {
 
   addToCart() {
     this.cartServ.addToCart(this.tour);
+    this.router.navigateByUrl('cart-page');
   }
 }

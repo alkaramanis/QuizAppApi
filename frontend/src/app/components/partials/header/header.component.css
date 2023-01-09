@@ -41,3 +41,10 @@
 .logo {
   height: 5.2rem;
 }
+.main-nav-link span {
+  font-size: 2rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 6rem;
+  background-color: rgb(37, 58, 4);
+  color: #fff;
+}

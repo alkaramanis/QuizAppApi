@@ -11,7 +11,9 @@
         <label for="password">Password</label>
         <input formControlName="password" />
       </div>
-      <p><a class="pass" routerLink="/">Forget your password?</a></p>
+      <p>
+        <a class="pass" routerLink="/forget-password">Forget your password?</a>
+      </p>
       <button [disabled]="loginForm.invalid" class="btn" type="submit">
         Login
       </button>

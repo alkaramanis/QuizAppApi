@@ -1,1 +1,45 @@
-<p>cart-page works!</p>
+<section class="cart-section">
+  <h2 class="m--margin-bottom">Your cart</h2>
+  <div class="cart-container">
+    <ul class="cart-list">
+      <li *ngFor="let item of cart.items" class="cart-list-item">
+        <img class="cart-img" [src]="path + item.tour.imageCover" />
+        <p>{{ item.tour.name }}</p>
+        <div>
+          <select
+            #quantitySelect
+            [value]="item.quantity"
+            (change)="changeQuanity(item, quantitySelect.value)"
+          >
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <span class="tour-price">{{ item.tour.price }} €</span>
+        <div>
+          <button (click)="removeFromCart(item.tour.id)" class="btn">
+            Remove from Cart
+          </button>
+        </div>
+      </li>
+    </ul>
+    <div class="checkout">
+      <span>Price: {{ cart.totalprice }}€</span>
+      <span>Quantity: {{ cart.totalQuantity }}</span>
+
+      <button class="btn">Procced to checkout</button>
+    </div>
+  </div>
+  <div>
+    <button
+      *ngIf="this.cart.items.length"
+      class="delete-cart btn m--margin-top"
+      (click)="deleteCart()"
+    >
+      Delete your cart
+    </button>
+  </div>
+</section>

@@ -19,19 +19,15 @@ export class CartService {
     this.setCartToLocalStorage();
   }
   removeFromCart(tourId: string) {
-    this.cart.items = this.cart.items.filter((item) => {
-      item.tour.id != tourId;
-      this.setCartToLocalStorage();
-    });
+    this.cart.items = this.cart.items.filter((item) => item.tour.id != tourId);
+    this.setCartToLocalStorage();
   }
   changeQuantity(tourId: string, quantity: number) {
-    let cartItem = this.cart.items.find((item) => {
-      item.tour.id = tourId;
-      if (!cartItem) return;
-      cartItem.quantity = quantity;
-      cartItem.price = quantity * cartItem.tour.price;
-      this.setCartToLocalStorage();
-    });
+    let cartItem = this.cart.items.find((item) => item.tour.id === tourId);
+    if (!cartItem) return;
+    cartItem.quantity = quantity;
+    cartItem.price = quantity * cartItem.tour.price;
+    this.setCartToLocalStorage();
   }
   clearCart() {
     this.cart = new Cart();
