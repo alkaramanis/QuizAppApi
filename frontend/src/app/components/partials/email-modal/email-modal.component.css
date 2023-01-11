@@ -1,0 +1,13 @@
+.custom > * {
+  font-size: 2.2rem;
+}
+.custom p {
+  font-weight: 600;
+}
+.custom label {
+  margin-right: 2rem;
+}
+input {
+  width: 60rem;
+  padding: 1rem;
+}

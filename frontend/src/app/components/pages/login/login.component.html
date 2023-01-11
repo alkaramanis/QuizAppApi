@@ -11,12 +11,17 @@
         <label for="password">Password</label>
         <input formControlName="password" />
       </div>
-      <p>
-        <a class="pass" routerLink="/forget-password">Forget your password?</a>
-      </p>
+      <p class="pass" (click)="onclick()">Forget your password?</p>
+
       <button [disabled]="loginForm.invalid" class="btn" type="submit">
         Login
       </button>
     </div>
   </form>
+  <app-email-modal (close)="onclick()" *ngIf="visible"></app-email-modal>
+  <app-reset-password-modal
+    (close)="resetPassOnClick()"
+    *ngIf="resetVisible"
+    [jwt]="jwt"
+  ></app-reset-password-modal>
 </section>

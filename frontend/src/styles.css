@@ -9,17 +9,18 @@
 /* ---------------- GENERAL */
 
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 html {
-  font-size: 62.5%;
+  font-size: 62.5% !important;
 }
 body,
 button {
-  font-family: "Rubik", sans-serif;
+  font-family: "Rubik", sans-serif !important;
   line-height: 1;
   font-weight: 400;
   color: #555;

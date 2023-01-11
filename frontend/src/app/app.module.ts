@@ -14,6 +14,8 @@ import { LoginFormComponent } from './components/partials/login-form/login-form.
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
+import { EmailModalComponent } from './components/partials/email-modal/email-modal.component';
+import { ResetPasswordModalComponent } from './components/partials/reset-password-modal/reset-password-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { CartPageComponent } from './components/pages/cart-page/cart-page.compon
     LoginFormComponent,
     DashboardComponent,
     CartPageComponent,
+    EmailModalComponent,
+    ResetPasswordModalComponent,
   ],
   imports: [
     BrowserModule,

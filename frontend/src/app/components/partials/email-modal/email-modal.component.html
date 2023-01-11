@@ -1,0 +1,14 @@
+<div (click)="closeModalonclick()" class="ui dimmer visible active custom">
+  <div (click)="$event.stopPropagation()" class="ui modal visible active">
+    <i (click)="closeModalonclick()" class="close icon"></i>
+    <div class="header">PASSWORD RESET</div>
+    <div class="content">
+      <p>Please enter your email</p>
+      <label for="email">Your email:</label>
+      <input [(ngModel)]="email" name="email" />
+    </div>
+    <div class="actions">
+      <button (click)="newPasswordRequest()" class="ui button">ok</button>
+    </div>
+  </div>
+</div>

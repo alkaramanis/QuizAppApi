@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'cart-page',
     component: CartPageComponent,
   },
+  {
+    path: 'resetPassword/:jwt',
+    component: LoginComponent,
+  },
 ];
 
 @NgModule({
