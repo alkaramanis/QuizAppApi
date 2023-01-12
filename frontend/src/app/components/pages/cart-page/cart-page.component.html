@@ -1,4 +1,6 @@
-<section class="cart-section">
+<app-not-found *ngIf="!cart || !cart.items.length" message="Your cart is empty">
+</app-not-found>
+<section class="cart-section" *ngIf="cart && cart.items.length">
   <h2 class="m--margin-bottom">Your cart</h2>
   <div class="cart-container">
     <ul class="cart-list">

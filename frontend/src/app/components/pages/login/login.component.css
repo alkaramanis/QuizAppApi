@@ -22,6 +22,7 @@
 }
 
 .login-form label {
+  width: 15rem;
   display: inline-block;
   margin-right: 1.6rem;
   color: #fff;

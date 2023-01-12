@@ -1,11 +1,15 @@
-<section class="tours l-margin-top">
+<app-not-found
+  *ngIf="!tours.length"
+  message="No tour found with this name"
+  resetRouteText="Search for something else"
+  resetRoute="/"
+></app-not-found>
+<section *ngIf="tours.length" class="tours l-margin-top">
   <div class="container">
     <div class="tour-header m--margin-bottom">
       <h2 class="align-center">The best tours in the Country</h2>
     </div>
-    <div class="search sm--margin-bottom">
-      <app-search></app-search>
-    </div>
+    <app-search></app-search>
     <div class="grid grid--3-col">
       <div class="tour-content" *ngFor="let tour of tours">
         <a class="tour-link" routerLink="/tours/{{ tour.id }}">

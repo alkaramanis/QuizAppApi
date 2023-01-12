@@ -19,7 +19,8 @@ html {
   font-size: 62.5% !important;
 }
 body,
-button {
+button,
+h2 {
   font-family: "Rubik", sans-serif !important;
   line-height: 1;
   font-weight: 400;
@@ -72,7 +73,7 @@ button {
 
 /* HEADERS-PARAGRAPHS */
 h2 {
-  font-size: 4.4rem;
+  font-size: 4.4rem !important;
 }
 .align-center {
   text-align: center;

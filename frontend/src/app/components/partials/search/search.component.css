@@ -1,1 +1,14 @@
-
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input {
+  border-radius: 6rem 0 0 6rem;
+  border: 1px solid #d5dce2;
+}
+.btn {
+  font-weight: 400;
+  background-color: #e67d22d7;
+  border-radius: 0 6rem 6rem 0rem;
+}

@@ -1,3 +1,5 @@
+import { Reviews } from './Reviews';
+
 enum difficulty {
   easy = 'Easy',
   medium = 'Medium',
@@ -15,4 +17,5 @@ export class Tour {
   public imageCover!: string;
   public id!: string;
   public locations: [{}];
+  public reviews: Reviews[];
 }

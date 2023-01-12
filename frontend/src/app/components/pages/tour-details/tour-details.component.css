@@ -17,6 +17,7 @@
   font-size: 2rem;
 }
 .tour-image {
+  height: 40rem;
   border-radius: 0.6rem;
 }
 .tour-details-list {
@@ -27,11 +28,20 @@
   gap: 1rem;
 }
 .btn {
+  outline: none;
+  border: none;
+  border-radius: 15rem;
+  font-weight: 200;
+  background-color: #339af0;
   position: absolute;
-  bottom: 5%;
+  bottom: 0%;
   right: 50%;
-  transform: translate(50%, 0);
+  transform: translate(50%, -20%);
   padding: 0.8rem 3.6rem;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: #1c7ed6;
 }
 .cart {
   display: inline-block;
@@ -59,4 +69,3 @@
 .overview p {
   line-height: 2.8rem;
 }
-

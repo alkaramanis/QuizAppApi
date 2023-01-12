@@ -1,5 +1,11 @@
+.map-wrapper {
+  padding: 0 3.2rem;
+  max-width: 180rem;
+  margin: 0 auto;
+}
 .map-container {
-  height: 1000px;
+  height: 800px;
+  width: 173.6rem;
   margin: 1.6rem 0;
 }
 

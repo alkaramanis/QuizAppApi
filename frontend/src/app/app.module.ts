@@ -16,6 +16,8 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 import { EmailModalComponent } from './components/partials/email-modal/email-modal.component';
 import { ResetPasswordModalComponent } from './components/partials/reset-password-modal/reset-password-modal.component';
+import { NotFoundComponent } from './components/partials/not-found/not-found.component';
+import { ReviewsComponent } from './components/partials/reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { ResetPasswordModalComponent } from './components/partials/reset-passwor
     CartPageComponent,
     EmailModalComponent,
     ResetPasswordModalComponent,
+    NotFoundComponent,
+    ReviewsComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@
       <li><a routerLink="/orders" class="main-nav-link">Orders</a></li>
       <li>
         <a routerLink="/cart-page" class="main-nav-link">
-          Cart <span>{{ quantity }}</span></a
+          Cart <span *ngIf="quantity">{{ quantity }}</span></a
         >
       </li>
       <li><a class="main-nav-link">Logout</a></li>

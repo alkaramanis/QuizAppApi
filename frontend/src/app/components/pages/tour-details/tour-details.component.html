@@ -2,7 +2,7 @@
   <div class="tour container l-margin-top grid grid--2-col">
     <img class="tour-image" [src]="imagePath + tour.imageCover" />
     <div class="tour-description">
-      <h3 class="name sm--margin-bottom align-center">{{ tour.name }}</h3>
+      <h3 class="name align-center">{{ tour.name }}</h3>
       <p class="summary xxsm--margin-bottom">{{ tour.summary }}</p>
       <ul class="tour-details-list">
         <li>
@@ -23,6 +23,7 @@
       <h2>OVERVIEW</h2>
       <p class="xxsm--margin-top">{{ tour.description }}</p>
     </div>
-    <app-map [locations]="tour.locations"></app-map>
   </div>
+  <app-map [locations]="tour.locations"></app-map>
+  <app-reviews [reviews]="tour.reviews"></app-reviews>
 </section>

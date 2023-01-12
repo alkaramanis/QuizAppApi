@@ -1,0 +1,16 @@
+<div class="container">
+  <ul>
+    <li *ngFor="let review of reviews">
+      <ul>
+        <li>{{ review.user.username }}</li>
+        <li><img src="{{ review.user.photo }}" alt="user images" /></li>
+        <li>
+          {{ review.rating }}
+        </li>
+        <li>
+          {{ review.review }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

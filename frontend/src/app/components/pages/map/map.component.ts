@@ -38,7 +38,7 @@ export class MapComponent implements OnInit {
     const initialState = {
       lng: -77.034203,
       lat: 38.904118,
-      zoom: 7,
+      zoom: 9,
     };
 
     const map = new L.Map(this.mapContainer.nativeElement).setView(
@@ -59,9 +59,9 @@ export class MapComponent implements OnInit {
     }).addTo(map);
     this.locations.forEach((el: any) => {
       L.marker([el.coordinates[1], el.coordinates[0]])
-        .addTo(map)
         .bindPopup('deded')
-        .openPopup();
+        .openPopup()
+        .addTo(map);
     });
     // L.marker([38.904118, -77.034203]).addTo(map).bindPopup('deded').openPopup();
     // console.log(this.locations);

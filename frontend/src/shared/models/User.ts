@@ -4,9 +4,9 @@ enum role {
   leadGuide = 'lead-guide',
 }
 export class User {
-  private username!: string;
+  public username!: string;
   private password!: string;
   private role!: role;
-  private photo: string;
+  public photo: string;
   private email: string;
 }
