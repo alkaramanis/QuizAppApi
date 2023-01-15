@@ -58,10 +58,10 @@ export class MapComponent implements OnInit {
       accessToken: ACCESS_TOKEN,
     }).addTo(map);
     this.locations.forEach((el: any) => {
-      L.marker([el.coordinates[1], el.coordinates[0]])
-        .bindPopup('deded')
-        .openPopup()
-        .addTo(map);
+      L.marker([el.coordinates[0], el.coordinates[1]])
+        .addTo(map)
+
+        .openPopup();
     });
     // L.marker([38.904118, -77.034203]).addTo(map).bindPopup('deded').openPopup();
     // console.log(this.locations);

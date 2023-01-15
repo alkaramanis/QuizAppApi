@@ -1,16 +1,35 @@
-<div class="container">
-  <ul>
-    <li *ngFor="let review of reviews">
-      <ul>
-        <li>{{ review.user.username }}</li>
-        <li><img src="{{ review.user.photo }}" alt="user images" /></li>
-        <li>
-          {{ review.rating }}
-        </li>
-        <li>
-          {{ review.review }}
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
+<section class="review-section">
+  <div class="container">
+    <div>
+      <p>Reviews</p>
+      <h2 class="heading">Our strength our people</h2>
+    </div>
+    <ul class="review-list grid grid--2-col">
+      <li *ngFor="let review of reviews" class="review-item">
+        <img
+          class="user-img"
+          src="{{ userImagesPath }}{{ review.user.photo }}"
+          alt="user images"
+        />
+        <ul>
+          <li class="username">{{ review.user.name }}</li>
+          <li>
+            <star-rating></star-rating>
+            <star-rating
+              [value]="review.rating"
+              [totalstars]="5"
+              checkedcolor="#e67e22"
+              uncheckedcolor="black"
+              size="22px"
+              [readonly]="true"
+            >
+            </star-rating>
+          </li>
+          <li>
+            {{ review.review }}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>

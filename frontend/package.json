@@ -23,6 +23,7 @@
     "leaflet": "^1.9.3",
     "mapbox-gl": "^2.11.1",
     "mapbox-gl-leaflet": "^0.0.15",
+    "ng-starrating": "^1.0.20",
     "rxjs": "~7.5.0",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-modal": "^2.5.0",

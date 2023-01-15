@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import {
   FORGOT_PASSWORD_URL,
   LOGIN_URL,
+  MY_PROFILE_EDIT_URL,
   RESET_PASSWORD_URL,
 } from 'src/shared/constants/urls';
 @Injectable({
@@ -13,7 +14,8 @@ import {
 export class UserService {
   login(email: string, password: string): Observable<User> {
     const body = { email, password };
-    return this.http.post<User>(LOGIN_URL, body);
+    const httpOptions = { withCredentials: true };
+    return this.http.post<User>(LOGIN_URL, body, httpOptions);
   }
   signup() {}
   forgetpassword(email: string) {
@@ -23,6 +25,10 @@ export class UserService {
     const body = { password: newPass, passwordConfirm: newPassConfirm };
     console.log(body);
     return this.http.patch<any>(RESET_PASSWORD_URL + jwt, body);
+  }
+  getMyProfile(): Observable<User> {
+    const httpOptions = { withCredentials: true };
+    return this.http.get<User>(MY_PROFILE_EDIT_URL, httpOptions);
   }
   constructor(private http: HttpClient) {}
 }

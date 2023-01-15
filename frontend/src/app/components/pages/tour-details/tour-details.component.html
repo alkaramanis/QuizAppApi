@@ -1,6 +1,10 @@
-<section class="tour-section">
+<section *ngIf="tour" class="tour-section">
   <div class="tour container l-margin-top grid grid--2-col">
-    <img class="tour-image" [src]="imagePath + tour.imageCover" />
+    <img
+      class="tour-image"
+      [src]="imagePath + tour.imageCover"
+      alt="tour-images"
+    />
     <div class="tour-description">
       <h3 class="name align-center">{{ tour.name }}</h3>
       <p class="summary xxsm--margin-bottom">{{ tour.summary }}</p>

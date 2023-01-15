@@ -18,6 +18,10 @@ import { EmailModalComponent } from './components/partials/email-modal/email-mod
 import { ResetPasswordModalComponent } from './components/partials/reset-password-modal/reset-password-modal.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 import { ReviewsComponent } from './components/partials/reviews/reviews.component';
+import { RatingModule } from 'ng-starrating';
+import { MyProfileComponent } from './components/pages/my-profile/my-profile.component';
+import { InputContainerComponent } from './components/partials/input-container/input-container.component';
+import { SignupComponent } from './components/pages/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,9 @@ import { ReviewsComponent } from './components/partials/reviews/reviews.componen
     ResetPasswordModalComponent,
     NotFoundComponent,
     ReviewsComponent,
+    MyProfileComponent,
+    InputContainerComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +49,7 @@ import { ReviewsComponent } from './components/partials/reviews/reviews.componen
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    RatingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -4,15 +4,38 @@
     <div class="form-container">
       <h2>LOG IN</h2>
       <div class="username">
-        <label for="username">Username</label>
-        <input formControlName="username" />
+        <label for="email">Email</label>
+        <input placeholder="Email" type="email" formControlName="email" />
+        <div
+          class="error-list"
+          *ngIf="
+            loginForm.controls.email.dirty &&
+            loginForm.controls.email.touched &&
+            loginForm.controls.email.errors
+          "
+        >
+          <div
+            class="required"
+            *ngIf="loginForm.controls.email.errors.required"
+          >
+            Email should not be empty
+          </div>
+          <div class="email" *ngIf="loginForm.controls.email.errors.email">
+            This is not an email
+          </div>
+        </div>
       </div>
+
       <div class="password">
         <label for="password">Password</label>
-        <input formControlName="password" />
+        <input
+          placeholder="Password"
+          type="password"
+          formControlName="password"
+        />
       </div>
       <p class="pass" (click)="onclick()">Forget your password?</p>
-      <p class="pass" (click)="onclick()">Not have an account? Sign up here</p>
+      <p class="pass" (click)="signup()">Not have an account? Sign up here</p>
 
       <button [disabled]="loginForm.invalid" class="btn" type="submit">
         Login

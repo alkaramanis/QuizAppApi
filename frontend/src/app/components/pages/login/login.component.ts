@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   jwt: string;
+  isSumbitted = false;
   visible: boolean = false;
   resetVisible: boolean = false;
   path = HEROES_PATH;
@@ -25,15 +26,18 @@ export class LoginComponent implements OnInit {
     });
   }
   loginForm = new FormGroup({
-    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
 
   ngOnInit(): void {}
+
   submit() {
+    this.isSumbitted = true;
     const { value: password } = this.loginForm.controls.password;
-    const { value: username } = this.loginForm.controls.username;
-    this.userserv.login(username!, password!).subscribe((res: any) => {
+    const { value: email } = this.loginForm.controls.email;
+    this.userserv.login(email!, password!).subscribe((res: any) => {
+      console.log(res);
       this.router.navigateByUrl('dashboard');
     });
   }
@@ -43,4 +47,10 @@ export class LoginComponent implements OnInit {
   resetPassOnClick() {
     this.resetVisible = !this.resetVisible;
   }
+  signup() {
+    this.router.navigateByUrl('/signup');
+  }
+  // showError() {
+  //   return;
+  // }
 }
