@@ -1,6 +1,8 @@
-<div class="container" [ngStyle]="{ 'background-color': bgColor }">
+<div class="input-container" [ngStyle]="{ 'background-color': bgColor }">
   <label>
     {{ label }}
   </label>
-  <ng-content class="content"> </ng-content>
+  <div class="content">
+    <ng-content> </ng-content>
+  </div>
 </div>

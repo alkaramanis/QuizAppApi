@@ -22,6 +22,9 @@ import { RatingModule } from 'ng-starrating';
 import { MyProfileComponent } from './components/pages/my-profile/my-profile.component';
 import { InputContainerComponent } from './components/partials/input-container/input-container.component';
 import { SignupComponent } from './components/pages/signup/signup.component';
+import { InputValidationComponent } from './components/partials/input-validation/input-validation.component';
+import { TextInputComponent } from './components/partials/text-input/text-input.component';
+import { DefaultButtonComponent } from './components/partials/default-button/default-button.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { SignupComponent } from './components/pages/signup/signup.component';
     MyProfileComponent,
     InputContainerComponent,
     SignupComponent,
+    InputValidationComponent,
+    TextInputComponent,
+    DefaultButtonComponent,
   ],
   imports: [
     BrowserModule,

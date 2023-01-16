@@ -30,7 +30,9 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
   });
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.loginForm);
+  }
 
   submit() {
     this.isSumbitted = true;

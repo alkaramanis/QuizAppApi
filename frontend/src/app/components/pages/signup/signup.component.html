@@ -1,1 +1,23 @@
-<p>signup works!</p>
+
+  <div class="container">
+    <h2>SIGN UP</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
+      <text-input [control]="fc.name" type="text" label="Name"></text-input>
+      <text-input [control]="fc.email" type="email" label="Email"> </text-input>
+      <text-input
+        [control]="fc.password"
+        type="password"
+        label="Password"
+      ></text-input>
+      <text-input
+        [control]="fc.passwordConfirm"
+        type="password"
+        label="PasswordConfirm"
+      ></text-input>
+      <default-button
+        [disabled]="signupForm.invalid"
+        text="Signup"
+      ></default-button>
+    </form>
+  </div>
+
