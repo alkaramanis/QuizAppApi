@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IUserResponse } from 'src/shared/interfaces/IUserResponse';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/shared/models/User';
 import { Observable } from 'rxjs';
@@ -23,12 +24,17 @@ export class UserService {
 
     return this.http.post<User>(LOGIN_URL, body, this.httpOptions);
   }
-  signup(userSignup: IUserSignup): Observable<User> {
-    return this.http.post<User>(SIGN_UP_URL, userSignup, this.httpOptions).pipe(
-      tap({
-        next: (user) => {},
-      })
-    );
+  signup(userSignup: IUserSignup): Observable<IUserResponse> {
+    return this.http
+      .post<IUserResponse>(SIGN_UP_URL, userSignup, this.httpOptions)
+      .pipe(
+        tap({
+          next: (userResponse) => {
+            localStorage.setItem('isLoggedIn', 'true');
+            this.setUserToLocalStorage(userResponse.data.data);
+          },
+        })
+      );
   }
 
   forgetpassword(email: string) {
@@ -45,6 +51,9 @@ export class UserService {
     return this.http
       .get<User>(MY_PROFILE_EDIT_URL, this.httpOptions)
       .pipe(tap((user) => {}));
+  }
+  setUserToLocalStorage(user: User) {
+    localStorage.setItem('user', JSON.stringify(user));
   }
   constructor(private http: HttpClient) {}
 }

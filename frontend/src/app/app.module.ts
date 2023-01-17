@@ -25,6 +25,7 @@ import { SignupComponent } from './components/pages/signup/signup.component';
 import { InputValidationComponent } from './components/partials/input-validation/input-validation.component';
 import { TextInputComponent } from './components/partials/text-input/text-input.component';
 import { DefaultButtonComponent } from './components/partials/default-button/default-button.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { DefaultButtonComponent } from './components/partials/default-button/def
     ReactiveFormsModule,
     RatingModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
