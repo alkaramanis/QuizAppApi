@@ -32,6 +32,7 @@ const createSendToken = function (user, statusCode, res) {
     },
   });
 };
+
 exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
     name: req.body.name,
@@ -40,6 +41,19 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordConfirm: req.body.passwordConfirm,
   });
   createSendToken(newUser, 201, res);
+});
+
+exports.logout = catchAsync(async (req, res, next) => {
+  const token = '';
+  const cookieOpt = {
+    expires: new Date(Date.now()),
+    httpOnly: true,
+  };
+  res.cookie('jwt', token, cookieOpt);
+  res.status(201).json({
+    status: 'success',
+    token,
+  });
 });
 
 exports.login = catchAsync(async (req, res, next) => {

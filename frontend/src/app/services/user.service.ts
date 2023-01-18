@@ -2,27 +2,63 @@ import { Injectable } from '@angular/core';
 import { IUserResponse } from 'src/shared/interfaces/IUserResponse';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/shared/models/User';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import {
   FORGOT_PASSWORD_URL,
   LOGIN_URL,
+  LOGOUT_URL,
   MY_PROFILE_EDIT_URL,
   RESET_PASSWORD_URL,
   SIGN_UP_URL,
 } from 'src/shared/constants/urls';
 import { IUserSignup } from 'src/shared/interfaces/IUserSignup';
 import { tap } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  httpOptions = { withCredentials: true };
+  private httpOptions = { withCredentials: true };
+  private user: User = this.getUserFromLocalStorage();
+  private userSubject: BehaviorSubject<User> = new BehaviorSubject(this.user);
 
-  login(email: string, password: string): Observable<User> {
+  getUserObservable(): Observable<User> {
+    return this.userSubject.asObservable();
+  }
+
+  login(email: string, password: string): Observable<IUserResponse> {
     const body = { email, password };
 
-    return this.http.post<User>(LOGIN_URL, body, this.httpOptions);
+    return this.http
+      .post<IUserResponse>(LOGIN_URL, body, this.httpOptions)
+      .pipe(
+        tap({
+          next: (userResponse) => {
+            this.userSubject.next(userResponse.data.user);
+            this.setUserToLocalStorage(userResponse.data.user);
+            this.authServ.loggedinSubject.next(true);
+            this.toastr.success('You successfully login');
+          },
+          error: (userResponse) =>
+            this.toastr.error('Something went wrong', userResponse),
+        })
+      );
+  }
+  logout(): Observable<User> {
+    return this.http.get<User>(LOGOUT_URL, this.httpOptions).pipe(
+      tap({
+        next: (res) => {
+          this.userSubject.next(new User());
+          this.setUserToLocalStorage(new User());
+          this.toastr.success('You successfully logout');
+        },
+        error: (res) => {
+          this.toastr.error('Something went wrong');
+        },
+      })
+    );
   }
   signup(userSignup: IUserSignup): Observable<IUserResponse> {
     return this.http
@@ -30,8 +66,12 @@ export class UserService {
       .pipe(
         tap({
           next: (userResponse) => {
-            localStorage.setItem('isLoggedIn', 'true');
-            this.setUserToLocalStorage(userResponse.data.data);
+            this.userSubject.next(userResponse.data.user);
+            this.setUserToLocalStorage(userResponse.data.user);
+            this.toastr.success('You succesfully signup!');
+          },
+          error: () => {
+            this.toastr.error('Somenthing went wrong');
           },
         })
       );
@@ -55,5 +95,13 @@ export class UserService {
   setUserToLocalStorage(user: User) {
     localStorage.setItem('user', JSON.stringify(user));
   }
-  constructor(private http: HttpClient) {}
+  getUserFromLocalStorage(): User {
+    const strUser = localStorage.getItem('user');
+    return strUser ? JSON.parse(strUser) : new User();
+  }
+  constructor(
+    private http: HttpClient,
+    private toastr: ToastrService,
+    private authServ: AuthService
+  ) {}
 }

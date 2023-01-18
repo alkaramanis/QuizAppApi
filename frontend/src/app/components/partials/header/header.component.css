@@ -41,10 +41,21 @@
 .logo {
   height: 5.2rem;
 }
-.main-nav-link span {
+/* .main-nav-link span {
   font-size: 2rem;
   padding: 0.1rem 0.45rem;
   border-radius: 6rem;
   background-color: rgb(37, 58, 4);
   color: #fff;
+} */
+.profile-image {
+  width: 4rem;
+  border-radius: 6rem;
+}
+
+.main-nav-link:link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
 }

@@ -7,6 +7,8 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { MyProfileComponent } from './components/pages/my-profile/my-profile.component';
 import { SignupComponent } from './components/pages/signup/signup.component';
 import { TourDetailsComponent } from './components/pages/tour-details/tour-details.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,10 +39,15 @@ const routes: Routes = [
   {
     path: 'myProfile',
     component: MyProfileComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'signup',
     component: SignupComponent,
+  },
+  {
+    path: 'logout',
+    component: LoginComponent,
   },
 ];
 

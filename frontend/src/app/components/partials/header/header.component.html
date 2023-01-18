@@ -7,8 +7,20 @@
   /></a>
   <nav class="main-nav">
     <ul class="main-nav-list">
-      <li><a routerLink="/login" class="main-nav-link">Login</a></li>
-      <li><a routerLink="/dashboard" class="main-nav-link">John</a></li>
+      <li *ngIf="!islogged">
+        <a routerLink="/login" class="main-nav-link"><span>Login</span></a>
+      </li>
+      <li *ngIf="islogged">
+        <a routerLink="/dashboard" class="main-nav-link"
+          ><img
+            *ngIf="user.photo"
+            class="profile-image"
+            [src]="imagePath + user.photo"
+            alt="profile-image"
+          />
+          <span>{{ user.name }}</span>
+        </a>
+      </li>
       <li><a routerLink="/myProfile" class="main-nav-link">My Profile</a></li>
       <li><a routerLink="/orders" class="main-nav-link">Orders</a></li>
       <li>
@@ -16,7 +28,9 @@
           Cart <span *ngIf="quantity">{{ quantity }}</span></a
         >
       </li>
-      <li><a class="main-nav-link">Logout</a></li>
+      <li *ngIf="islogged">
+        <a href="/logout" (click)="logout()" class="main-nav-link">Logout</a>
+      </li>
     </ul>
   </nav>
 </header>

@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { TourDetailsComponent } from './components/pages/tour-details/tour-details.component';
 import { MapComponent } from './components/pages/map/map.component';
 import { LoginComponent } from './components/pages/login/login.component';
-import { LoginFormComponent } from './components/partials/login-form/login-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
@@ -26,6 +25,8 @@ import { InputValidationComponent } from './components/partials/input-validation
 import { TextInputComponent } from './components/partials/text-input/text-input.component';
 import { DefaultButtonComponent } from './components/partials/default-button/default-button.component';
 import { CookieService } from 'ngx-cookie-service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,6 @@ import { CookieService } from 'ngx-cookie-service';
     TourDetailsComponent,
     MapComponent,
     LoginComponent,
-    LoginFormComponent,
     DashboardComponent,
     CartPageComponent,
     EmailModalComponent,
@@ -57,6 +57,8 @@ import { CookieService } from 'ngx-cookie-service';
     FormsModule,
     ReactiveFormsModule,
     RatingModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
