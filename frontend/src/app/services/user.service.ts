@@ -66,6 +66,7 @@ export class UserService {
       .pipe(
         tap({
           next: (userResponse) => {
+            this.authServ.loggedinSubject.next(true);
             this.userSubject.next(userResponse.data.user);
             this.setUserToLocalStorage(userResponse.data.user);
             this.toastr.success('You succesfully signup!');
