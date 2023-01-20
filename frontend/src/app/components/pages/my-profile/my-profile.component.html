@@ -2,19 +2,51 @@
   <div class="ul-background-container">
     <div class="ul-container">
       <ul class="general m--margin-bottom">
-        <li><a routerLink="/">SETTINGS</a></li>
-        <li><a routerLink="/">BOOKMARKS</a></li>
-        <li><a routerLink="/">ME REVIEWS</a></li>
-        <li><a routerLink="/">BILLING</a></li>
+        <li>
+          <a routerLink="/"
+            ><span class="material-icons">settings</span>SETTINGS</a
+          >
+        </li>
+        <li>
+          <a routerLink="/"
+            ><span class="material-icons">bookmark_border</span>BOOKMARKS</a
+          >
+        </li>
+        <li>
+          <a routerLink="/"
+            ><span class="material-icons">star_border</span>ME REVIEWS</a
+          >
+        </li>
+        <li>
+          <a routerLink="/"
+            ><span class="material-icons">credit_card</span>BILLING</a
+          >
+        </li>
       </ul>
       <div class="heading sm--margin-bottom">
         <p>Admin</p>
       </div>
       <ul class="admin">
-        <li><a routerLink="/">MANAGE TOURS</a></li>
-        <li><a routerLink="/">MANAGE REVIEWS</a></li>
-        <li><a routerLink="/">MAGANE USERS</a></li>
-        <li><a routerLink="/">MANAGE BOOKINGS</a></li>
+        <li>
+          <a routerLink="/"
+            ><span class="material-icons">map</span> MANAGE TOURS</a
+          >
+        </li>
+        <li>
+          <a routerLink="/"
+            ><span class="material-icons">star_border</span>MANAGE REVIEWS</a
+          >
+        </li>
+        <li>
+          <a routerLink="/"
+            ><span class="material-icons">people_outline</span>MAGANE USERS</a
+          >
+        </li>
+        <li>
+          <a routerLink="/"
+            ><span class="material-icons">map</span>MANAGE BOOKINGS</a
+          >
+        </li>
       </ul>
     </div>
   </div>
@@ -22,5 +54,38 @@
     <div class="info-heading">
       <p>YOUR ACCOUNT SETTINGS</p>
     </div>
+    <form [formGroup]="myProfileForm">
+      <text-input
+        label="Name"
+        [control]="fc.name"
+        type="text"
+        widthRem="60"
+        [placeholder]="user.name"
+      ></text-input>
+      <text-input
+        label="Email"
+        [control]="fc.name"
+        type="email"
+        [placeholder]="user.email"
+      ></text-input>
+      <label for="file" (click)="fileInput.click()">
+        <span>Upload</span>
+        <input
+          formControlName="file"
+          #fileInput
+          type="file"
+          (change)="onFileInput($event)"
+          style="display: none"
+        />
+      </label>
+      <img [src]="url" (click)="fileInput.click()" />
+      <default-button
+        backgroundImage="linear-gradient(to right, #7dd56f, #28b487)"
+        [widthRem]="18"
+        [heightRem]="4"
+        position="flex-end"
+        class="custom"
+      ></default-button>
+    </form>
   </div>
 </div>

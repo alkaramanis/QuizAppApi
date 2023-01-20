@@ -24,3 +24,9 @@ button:disabled:hover {
   opacity: 0.3 !important;
   cursor: not-allowed !important;
 }
+
+.custom {
+  background-image: linear-gradient(to right, #7dd56f, #28b487);
+  margin: 0;
+  border-radius: 4.8rem;
+}

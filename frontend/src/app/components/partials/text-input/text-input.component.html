@@ -1,4 +1,8 @@
-<input-container [label]="label">
-  <input [placeholder]="label" [type]="type" [formControl]="formControl" />
+<input-container [label]="label" [widthRem]="widthRem">
+  <input
+    [placeholder]="placeholder ? placeholder : label"
+    [type]="type"
+    [formControl]="formControl"
+  />
   <input-validation [control]="control"></input-validation>
 </input-container>

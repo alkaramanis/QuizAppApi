@@ -27,7 +27,6 @@ import { DefaultButtonComponent } from './components/partials/default-button/def
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-// import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -60,7 +59,6 @@ import { ToastrModule } from 'ngx-toastr';
     RatingModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    // MatIconModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

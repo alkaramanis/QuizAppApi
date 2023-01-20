@@ -9,10 +9,14 @@ export class DefaultButtonComponent implements OnInit {
   @Input() disabled: boolean;
   @Input() type: 'submit' | 'button' = 'submit';
   @Input() text: string = 'Submit';
-  @Input() bgColor = '#e67e22';
+  @Input() bgColor = 'white';
   @Input() color = 'white';
   @Input() fontSizeRem = 2.4;
   @Input() widthRem = 12;
+  @Input() class: string;
+  @Input() heightRem: number;
+  @Input() position: string;
+
   @Output() onClick = new EventEmitter();
   constructor() {}
 

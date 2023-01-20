@@ -9,7 +9,7 @@ export class User {
   private password!: string;
   private role!: role;
   public photo: string;
-  private email: string;
+  public email: string;
   public name: string;
   private token!: string;
 }
