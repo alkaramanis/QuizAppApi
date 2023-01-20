@@ -19,6 +19,7 @@ export class MyProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userSer.getMyProfile().subscribe((res: any) => {
       this.user = res.data.data;
+      this.url = USERS_PATH + this.user.photo;
     });
     this.myProfileForm = this.formBuilder.group({
       name: [''],
