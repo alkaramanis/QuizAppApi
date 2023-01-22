@@ -55,6 +55,12 @@ h2 {
   row-gap: 9.6rem;
   column-gap: 6.4rem;
 }
+.l--margin-top {
+  margin-top: 6.4rem;
+}
+.m--margin-top {
+  margin-top: 3.2rem;
+}
 .xxsm--margin-top {
   margin-top: 1.6rem;
 }

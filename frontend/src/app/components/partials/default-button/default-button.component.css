@@ -29,4 +29,5 @@ button:disabled:hover {
   background-image: linear-gradient(to right, #7dd56f, #28b487);
   margin: 0;
   border-radius: 4.8rem;
+  margin-bottom: 3.6rem;
 }

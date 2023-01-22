@@ -12,7 +12,7 @@ export class TextInputComponent implements OnInit {
   @Input() control: AbstractControl;
   @Input() type: 'text' | 'password' | 'email' | 'file' = 'text';
   @Input() widthRem = '';
-  // @Input() display: 'none' | 'block' | 'hidden' = 'block';
+  @Input() marginBottomRem: number;
   constructor() {}
   get formControl() {
     return this.control as FormControl;

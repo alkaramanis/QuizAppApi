@@ -9,6 +9,8 @@ export const LOGOUT_URL = BASE_URL + 'users/logout';
 export const FORGOT_PASSWORD_URL = BASE_URL + 'users/forgotPassword';
 export const RESET_PASSWORD_URL = BASE_URL + 'users/resetPassword/';
 export const SIGN_UP_URL = BASE_URL + 'users/signup';
+export const UPDATE_MY_PROFILE = BASE_URL + 'users/updateMe';
+export const UPDATE_PASSWORD = BASE_URL + 'users/updateMypassword';
 // -----------profile---------------
 export const MY_PROFILE_EDIT_URL = BASE_URL + 'users/me';
 // ---------- images paths--------------

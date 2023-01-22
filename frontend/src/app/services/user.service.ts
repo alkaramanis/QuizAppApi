@@ -10,11 +10,14 @@ import {
   MY_PROFILE_EDIT_URL,
   RESET_PASSWORD_URL,
   SIGN_UP_URL,
+  UPDATE_MY_PROFILE,
+  UPDATE_PASSWORD,
 } from 'src/shared/constants/urls';
 import { IUserSignup } from 'src/shared/interfaces/IUserSignup';
 import { tap } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from './auth.service';
+import { IPasswordChange } from 'src/shared/interfaces/IPasswordChange';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +30,11 @@ export class UserService {
   getUserObservable(): Observable<User> {
     return this.userSubject.asObservable();
   }
+  constructor(
+    private http: HttpClient,
+    private toastr: ToastrService,
+    private authServ: AuthService
+  ) {}
 
   login(email: string, password: string): Observable<IUserResponse> {
     const body = { email, password };
@@ -87,6 +95,24 @@ export class UserService {
     console.log(body);
     return this.http.patch<any>(RESET_PASSWORD_URL + jwt, body);
   }
+  updatePassword(newPassInterface: IPasswordChange): Observable<IUserResponse> {
+    return this.http
+      .patch<IUserResponse>(UPDATE_PASSWORD, newPassInterface, this.httpOptions)
+      .pipe(
+        tap({
+          next: (userResponse) => {
+            this.userSubject.next(userResponse.data.user);
+            this.setUserToLocalStorage(userResponse.data.user);
+            this.toastr.success('You successfully Update Your Password');
+            console.log(userResponse);
+          },
+          error: (userResponse) => {
+            this.toastr.error('Something went wrong', userResponse),
+              console.log(userResponse);
+          },
+        })
+      );
+  }
 
   getMyProfile(): Observable<User> {
     return this.http
@@ -100,9 +126,21 @@ export class UserService {
     const strUser = localStorage.getItem('user');
     return strUser ? JSON.parse(strUser) : new User();
   }
-  constructor(
-    private http: HttpClient,
-    private toastr: ToastrService,
-    private authServ: AuthService
-  ) {}
+  updateMyProfile(formData: FormData): Observable<IUserResponse> {
+    console.log(formData);
+    return this.http
+      .patch<IUserResponse>(UPDATE_MY_PROFILE, formData, this.httpOptions)
+      .pipe(
+        tap({
+          next: (userResponse) => {
+            this.userSubject.next(userResponse.data.user);
+            this.setUserToLocalStorage(userResponse.data.user);
+            this.toastr.success('You successfully Update Your Profile');
+            console.log(userResponse.data.user);
+          },
+          error: (userResponse) =>
+            this.toastr.error('Something went wrong', userResponse),
+        })
+      );
+  }
 }

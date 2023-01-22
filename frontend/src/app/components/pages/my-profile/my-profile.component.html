@@ -1,90 +1,137 @@
-<div class="b-container grid grid--4-col">
-  <div class="ul-background-container">
-    <div class="ul-container">
-      <ul class="general m--margin-bottom">
-        <li>
-          <a routerLink="/"
-            ><span class="material-icons">settings</span>SETTINGS</a
-          >
-        </li>
-        <li>
-          <a routerLink="/"
-            ><span class="material-icons">bookmark_border</span>BOOKMARKS</a
-          >
-        </li>
-        <li>
-          <a routerLink="/"
-            ><span class="material-icons">star_border</span>ME REVIEWS</a
-          >
-        </li>
-        <li>
-          <a routerLink="/"
-            ><span class="material-icons">credit_card</span>BILLING</a
-          >
-        </li>
-      </ul>
-      <div class="heading sm--margin-bottom">
-        <p>Admin</p>
+<section>
+  <div class="b-container grid grid--4-col">
+    <div class="ul-background-container">
+      <div class="ul-container">
+        <ul class="general m--margin-bottom">
+          <li>
+            <a routerLink="/"
+              ><span class="material-icons">settings</span>SETTINGS</a
+            >
+          </li>
+          <li>
+            <a routerLink="/"
+              ><span class="material-icons">bookmark_border</span>BOOKMARKS</a
+            >
+          </li>
+          <li>
+            <a routerLink="/"
+              ><span class="material-icons">star_border</span>ME REVIEWS</a
+            >
+          </li>
+          <li>
+            <a routerLink="/"
+              ><span class="material-icons">credit_card</span>BILLING</a
+            >
+          </li>
+        </ul>
+        <div class="heading sm--margin-bottom">
+          <p>Admin</p>
+        </div>
+        <ul class="admin">
+          <li>
+            <a routerLink="/"
+              ><span class="material-icons">map</span> MANAGE TOURS</a
+            >
+          </li>
+          <li>
+            <a routerLink="/"
+              ><span class="material-icons">star_border</span>MANAGE REVIEWS</a
+            >
+          </li>
+          <li>
+            <a routerLink="/"
+              ><span class="material-icons">people_outline</span>MAGANE USERS</a
+            >
+          </li>
+          <li>
+            <a routerLink="/"
+              ><span class="material-icons">map</span>MANAGE BOOKINGS</a
+            >
+          </li>
+        </ul>
       </div>
-      <ul class="admin">
-        <li>
-          <a routerLink="/"
-            ><span class="material-icons">map</span> MANAGE TOURS</a
-          >
-        </li>
-        <li>
-          <a routerLink="/"
-            ><span class="material-icons">star_border</span>MANAGE REVIEWS</a
-          >
-        </li>
-        <li>
-          <a routerLink="/"
-            ><span class="material-icons">people_outline</span>MAGANE USERS</a
-          >
-        </li>
-        <li>
-          <a routerLink="/"
-            ><span class="material-icons">map</span>MANAGE BOOKINGS</a
-          >
-        </li>
-      </ul>
+    </div>
+    <div class="info-container">
+      <div class="info-heading">
+        <p>YOUR ACCOUNT SETTINGS</p>
+      </div>
+      <form [formGroup]="myProfileForm" (ngSubmit)="onSubmit()">
+        <text-input
+          [marginBottomRem]="2"
+          label="Name"
+          [control]="fc.name"
+          type="text"
+          widthRem="60"
+          [placeholder]="user.name"
+        ></text-input>
+        <text-input
+          [marginBottomRem]="2"
+          label="Email"
+          [control]="fc.name"
+          type="email"
+          [placeholder]="user.email"
+        ></text-input>
+        <div class="img-container">
+          <img class="up-photo" [src]="url" (click)="fileInput.click()" />
+          <label for="photo" (click)="fileInput.click()">
+            <span>Choose new a photo</span>
+            <input
+              formControlName="photo"
+              #fileInput
+              type="file"
+              (change)="onFileInput($event)"
+              style="display: none"
+            />
+          </label>
+        </div>
+        <default-button
+          [widthRem]="18"
+          [heightRem]="4"
+          position="flex-end"
+          class="custom"
+          text="Save Settings"
+          [fontSizeRem]="1.8"
+        ></default-button>
+      </form>
+      <div class="divider"></div>
+      <div class="info-admin-heading l--margin-top">
+        <p>PASSWORD CHANGE</p>
+      </div>
+      <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmit2()">
+        <text-input
+          [marginBottomRem]="2"
+          label="CurrentPassword"
+          [control]="fc2.currentPassword"
+          type="password"
+          placeholder="********"
+        >
+        </text-input>
+        <text-input
+          [marginBottomRem]="2"
+          label="NewPassword"
+          [control]="fc2.newPassword"
+          type="password"
+          placeholder="********"
+        >
+        </text-input>
+        <text-input
+          [marginBottomRem]="2"
+          label="passwordConfirm"
+          [control]="fc2.passwordConfirm"
+          type="password"
+          placeholder="********"
+        >
+        </text-input>
+        <default-button
+          [widthRem]="18"
+          [heightRem]="4"
+          position="flex-end"
+          class="custom"
+          text="Save Settings"
+          [fontSizeRem]="1.8"
+        ></default-button>
+      </form>
     </div>
   </div>
-  <div class="info-container">
-    <div class="info-heading">
-      <p>YOUR ACCOUNT SETTINGS</p>
-    </div>
-    <form [formGroup]="myProfileForm">
-      <text-input
-        label="Name"
-        [control]="fc.name"
-        type="text"
-        widthRem="60"
-        [placeholder]="user.name"
-      ></text-input>
-      <text-input
-        label="Email"
-        [control]="fc.name"
-        type="email"
-        [placeholder]="user.email"
-      ></text-input>
-      <label for="file" (click)="fileInput.click()">
-        <span>Upload</span>
-        <input
-          formControlName="file"
-          #fileInput
-          type="file"
-          (change)="onFileInput($event)"
-          style="display: none"
-        />
-      </label>
-      <img [src]="url" (click)="fileInput.click()" />
-      <default-button
-        [widthRem]="18"
-        [heightRem]="4"
-        position="flex-end"
-        class="custom"
-      ></default-button>
-    </form>
-  </div>
-</div>
+  <div class="abstrac"></div>
+</section>

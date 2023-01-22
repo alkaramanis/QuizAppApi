@@ -10,6 +10,7 @@ export class InputContainerComponent implements OnInit {
   @Input() bgColor: 'white';
   @Input() widthRem: string;
   @Input() type: string;
+  @Input() marginBottomRem: number;
   constructor() {}
 
   ngOnInit(): void {}

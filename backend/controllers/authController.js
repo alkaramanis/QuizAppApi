@@ -187,9 +187,11 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
   // 1) Get user from the collection
   const user = await User.findById(req.user.id).select('+password');
   // 2) check if posted current password is correct
+
   if (!(await user.correctPassword(req.body.currentPassword, user.password)))
-    return new AppError('Your current password is wrong', 401);
+    return next(new AppError('Your current password is wrong', 401));
   // 3) if so, update password
+
   user.password = req.body.newPassword;
   user.passwordConfirm = req.body.newPasswordConfirm;
 
