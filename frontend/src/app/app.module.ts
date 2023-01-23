@@ -27,6 +27,8 @@ import { DefaultButtonComponent } from './components/partials/default-button/def
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { SortingComponent } from './components/partials/sorting/sorting.component';
+import { PriceRangerSliderComponent } from './components/partials/price-ranger-slider/price-ranger-slider.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { ToastrModule } from 'ngx-toastr';
     InputValidationComponent,
     TextInputComponent,
     DefaultButtonComponent,
+    SortingComponent,
+    PriceRangerSliderComponent,
   ],
   imports: [
     BrowserModule,

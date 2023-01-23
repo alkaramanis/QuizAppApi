@@ -1,3 +1,6 @@
+.container {
+  padding-bottom: 10rem;
+}
 .tour-img {
   width: 100%;
 }
@@ -37,4 +40,17 @@
 .tour-link {
   text-decoration: none;
   color: #555;
+}
+.search {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.container {
+  max-width: 160rem;
+  margin: 0 auto;
+}
+.tour-container {
+}
+.filter-container {
 }

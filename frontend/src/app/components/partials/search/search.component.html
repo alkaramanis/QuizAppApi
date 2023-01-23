@@ -1,10 +1,8 @@
-<div class="search sm--margin-bottom">
-  <input
-    class="input"
-    [(ngModel)]="searchTerm"
-    type="text"
-    placeholder="Search Tour"
-    (keyup.enter)="search(searchTerm)"
-  />
-  <button class="btn" (click)="search(searchTerm)">Search</button>
-</div>
+<input
+  class="input"
+  [(ngModel)]="searchTerm"
+  type="text"
+  placeholder="Search Tour"
+  (keyup.enter)="search(searchTerm)"
+/>
+<button class="btn" (click)="search(searchTerm)">Search</button>

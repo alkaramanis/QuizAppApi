@@ -21,9 +21,16 @@
           <span>{{ user.name }}</span>
         </a>
       </li>
-      <li><a routerLink="/myProfile" class="main-nav-link">My Profile</a></li>
-      <li><a routerLink="/orders" class="main-nav-link">Orders</a></li>
-      <li>
+      <li *ngIf="islogged">
+        <a routerLink="/myProfile" class="main-nav-link">My Profile</a>
+      </li>
+      <li *ngIf="islogged">
+        <a routerLink="/orders" class="main-nav-link">Orders</a>
+      </li>
+      <li *ngIf="!islogged">
+        <a routerLink="/signup" class="main-nav-link">Signup</a>
+      </li>
+      <li *ngIf="islogged">
         <a routerLink="/cart-page" class="main-nav-link">
           Cart <span *ngIf="quantity">{{ quantity }}</span></a
         >

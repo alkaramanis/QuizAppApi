@@ -1,8 +1,8 @@
-.search {
+/* .search {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 input {
   border-radius: 6rem 0 0 6rem;
   border: 1px solid #d5dce2;

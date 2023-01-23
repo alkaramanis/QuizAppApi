@@ -11,7 +11,7 @@ import { TOURS_PATH } from 'src/shared/constants/urls';
 })
 export class HomeComponent implements OnInit {
   path = TOURS_PATH;
-  tours: Tour[] = [];
+  protected tours: Tour[] = [];
   tourObj: Tour;
   constructor(
     private tour: TourService,

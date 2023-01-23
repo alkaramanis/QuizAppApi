@@ -1,0 +1,63 @@
+<div (click)="onClick()" class="sorting-container">
+  <span class=""><span class="strong">Sorting:</span> {{ text }}</span>
+  <span class="material-icons">keyboard_arrow_down</span>
+  <ul class="hidden-sorting-list" *ngIf="show">
+    <li
+      class="hidden-sorting-items"
+      (click)="onFilterClick('price', 'Price (Cheap first)', 1)"
+      [style.background]="id === 1 ? '#eee' : ''"
+    >
+      <span class="material-icons">euro_symbol</span>Price (Cheap first)
+    </li>
+    <li
+      [style.background]="id === 2 ? '#eee' : ''"
+      class="hidden-sorting-items"
+      (click)="onFilterClick('-price', 'Price (Expensive first)', 2)"
+    >
+      <span class="material-icons">euro_symbol</span>Price (Expensive first)
+    </li>
+    <li
+      [style.background]="id === 3 ? '#eee' : ''"
+      class="hidden-sorting-items"
+      (click)="
+        onFilterClick('-ratingsAverage', 'Popularity (High rating first', 3)
+      "
+    >
+      <span class="material-icons">star_border</span>Popularity (High rating
+      first)
+    </li>
+    <li
+      [style.background]="id === 4 ? '#eee' : ''"
+      class="hidden-sorting-items"
+      (click)="
+        onFilterClick('-difficulty', 'Difficulty (More difficult first)', 4)
+      "
+    >
+      <span class="material-icons">accessible icon</span>Difficulty (More
+      difficult first)
+    </li>
+    <li
+      [style.background]="id === 5 ? '#eee' : ''"
+      class="hidden-sorting-items"
+      (click)="onFilterClick('difficulty', 'Difficulty (Easiest first)', 5)"
+    >
+      <span class="material-icons">accessible_forward</span>Difficulty (Easiest
+      first)
+    </li>
+    <li
+      [style.background]="id === 6 ? '#eee' : ''"
+      class="hidden-sorting-items"
+      (click)="onFilterClick('maxGroupSize', 'Group (Larger size first)', 6)"
+    >
+      <span class="material-icons">people_outline</span>Group (Larger size first
+      )
+    </li>
+    <li
+      [style.background]="id === 7 ? '#eee' : ''"
+      class="hidden-sorting-items"
+      (click)="onFilterClick('-maxGroupSize', 'Group (Lower size first)', 7)"
+    >
+      <span class="material-icons">people_outline</span>Group (Lower size first)
+    </li>
+  </ul>
+</div>

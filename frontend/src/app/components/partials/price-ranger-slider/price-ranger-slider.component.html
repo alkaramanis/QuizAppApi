@@ -1,0 +1,21 @@
+<div class="price-slider-container">
+  <span>Price</span>
+  <input
+    (input)="onChange($event)"
+    type="range"
+    [min]="minPrice"
+    [max]="maxPrice"
+    [value]="minPrice"
+    step="1"
+  />
+  <input
+    id="second"
+    (input)="onChange2($event)"
+    type="range"
+    [min]="minPrice"
+    [max]="maxPrice"
+    [value]="maxPrice"
+    step="1"
+  />
+  <span>{{ inputValue }}</span>
+</div>

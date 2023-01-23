@@ -1,0 +1,48 @@
+.sorting-container {
+  min-width: 27rem;
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ced4da;
+  padding: 0.5rem 0.8rem;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+}
+.sorting-container:hover {
+  cursor: pointer;
+}
+.strong {
+  font-weight: 600;
+}
+.hidden-sorting-list {
+  line-height: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.3rem 0.6rem;
+  background-color: white;
+  list-style: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-height: 20rem;
+  width: 100%;
+  transform: translateY(100%);
+  border-radius: 1px solid #ced4da;
+  z-index: 2;
+  overflow-y: auto;
+}
+.hidden-sorting-items {
+  align-items: center;
+  display: flex;
+  gap: 1.2rem;
+  padding: 0.8rem 0.6rem;
+}
+.material-icons {
+  color: #1976d2;
+  font-size: 1.6rem;
+  width: 1.6rem;
+}
+.hidden-sorting-items:hover {
+  background-color: #eee;
+}
