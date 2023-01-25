@@ -11,7 +11,12 @@
         <span class="title">FILTERS</span>
       </div>
       <div>
-        <price-ranger-slider [tours]="tours"> </price-ranger-slider>
+        <price-ranger-slider
+          [tours]="tours"
+          [(filters)]="filters"
+          (filtersChange)="onChange($event)"
+        >
+        </price-ranger-slider>
       </div>
     </div>
     <div class="tour-container">
@@ -20,7 +25,8 @@
       </div>
 
       <div class="search sm--margin-bottom">
-        <app-sorting></app-sorting>
+        <app-sorting [(filters)]="filters" (filtersChange)="onChange($event)">
+        </app-sorting>
         <app-search></app-search>
       </div>
       <div class="grid grid--3-col">

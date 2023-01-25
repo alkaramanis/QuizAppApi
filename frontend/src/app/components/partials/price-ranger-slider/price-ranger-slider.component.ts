@@ -1,11 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Tour } from 'src/shared/models/Tour';
 import { Options } from '@angular-slider/ngx-slider';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HttpParams } from '@angular/common/http';
 import { QueryParamModel } from 'src/shared/models/QueryParamModel';
-import { BehaviorSubject, filter, Observable } from 'rxjs';
-import { QueryParamsService } from 'src/app/services/query-params.service';
+
 @Component({
   selector: 'price-ranger-slider',
   templateUrl: './price-ranger-slider.component.html',
@@ -13,7 +10,8 @@ import { QueryParamsService } from 'src/app/services/query-params.service';
 })
 export class PriceRangerSliderComponent implements OnInit {
   @Input() tours: Tour[];
-  Filters: QueryParamModel[] = [];
+  @Input() filters: QueryParamModel[] = [];
+  @Output() filtersChange: EventEmitter<QueryParamModel[]> = new EventEmitter();
 
   minPrice: number;
   maxPrice: number;
@@ -21,11 +19,7 @@ export class PriceRangerSliderComponent implements OnInit {
   minValue: number;
   maxValue: number;
 
-  constructor(
-    private router: Router,
-    private activateRoute: ActivatedRoute,
-    private queryParamsServ: QueryParamsService
-  ) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.minPrice = this.findminPrice().price;
@@ -52,25 +46,25 @@ export class PriceRangerSliderComponent implements OnInit {
       value: this.maxPrice,
     };
 
-    const minObjIndex = this.Filters.findIndex(
+    const minObjIndex = this.filters.findIndex(
       (obj) => obj.name === 'price[gte]'
     );
 
     if (minObjIndex !== -1) {
-      this.Filters.splice(minObjIndex, 1);
+      this.filters.splice(minObjIndex, 1);
     }
-    const maxObjIndex = this.Filters.findIndex(
+    const maxObjIndex = this.filters.findIndex(
       (obj) => obj.name === 'price[lte]'
     );
 
     if (maxObjIndex !== -1) {
-      this.Filters.splice(maxObjIndex, 1);
+      this.filters.splice(maxObjIndex, 1);
     }
 
-    this.Filters.push(minParam);
-    this.Filters.push(maxParam);
+    this.filters.push(minParam);
+    this.filters.push(maxParam);
 
-    this.queryParamsServ.queryParamsSubject.next(this.Filters);
+    this.filtersChange.emit(this.filters);
   }
   findminPrice(): Tour {
     return this.tours.reduce((prev, curr) =>
