@@ -1,21 +1,24 @@
-<div class="price-slider-container">
-  <span>Price</span>
-  <input
-    (input)="onChange($event)"
-    type="range"
-    [min]="minPrice"
-    [max]="maxPrice"
-    [value]="minPrice"
-    step="1"
-  />
-  <input
-    id="second"
-    (input)="onChange2($event)"
-    type="range"
-    [min]="minPrice"
-    [max]="maxPrice"
-    [value]="maxPrice"
-    step="1"
-  />
-  <span>{{ inputValue }}</span>
+<div class="custom-slider">
+  <div class="title">
+    <span>Price</span>
+  </div>
+  <ngx-slider
+    (userChangeEnd)="onChange()"
+    [(value)]="minPrice"
+    [(highValue)]="maxPrice"
+    [options]="options"
+  ></ngx-slider>
+  <div class="display">
+    <span class="display-span">From: {{ minPrice }}</span>
+    <span class="display-span-right">To: {{ maxPrice }}</span>
+    <span class="label-erase"></span>
+  </div>
 </div>
+
+<!-- <default-button
+    type="button"
+    [fontSizeRem]="1.8"
+    [heightRem]="4.5"
+    bgColor="#e67d22d7"
+    text="Apply filter"
+  ></default-button> -->

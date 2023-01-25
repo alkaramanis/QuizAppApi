@@ -28,6 +28,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SortingComponent } from './components/partials/sorting/sorting.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { PriceRangerSliderComponent } from './components/partials/price-ranger-slider/price-ranger-slider.component';
 
 @NgModule({
@@ -63,6 +64,7 @@ import { PriceRangerSliderComponent } from './components/partials/price-ranger-s
     RatingModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    NgxSliderModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

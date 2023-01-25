@@ -1,1 +1,37 @@
-
+.custom-slider {
+  position: relative;
+  width: 22rem;
+}
+.display {
+  display: flex;
+  justify-content: space-between;
+}
+.title {
+  text-align: center;
+  font-weight: 500;
+}
+.display-span {
+  transform: translate(-2rem, -6.5rem);
+  border: 1px solid #ced4da;
+  padding: 0.5rem 0.8rem;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+  z-index: 4;
+  background: white;
+}
+.label-erase {
+  position: absolute;
+  width: 28rem;
+  height: 2rem;
+  display: inline-block;
+  background: white;
+  top: 17%;
+  z-index: 2;
+}
+.display-span-right {
+  transform: translate(2rem, -6.5rem);
+  border: 1px solid #ced4da;
+  padding: 0.5rem 0.8rem;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+  z-index: 4;
+  background: white;
+}
