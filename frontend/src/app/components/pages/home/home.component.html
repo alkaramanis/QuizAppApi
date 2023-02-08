@@ -7,7 +7,7 @@
 <section *ngIf="tours.length" class="tours l-margin-top">
   <div class="container grid grid--4-col">
     <div class="filter-container">
-      <div class="title-container xxsm--margin-bottom">
+      <div class="title-container m--margin-bottom">
         <span class="title">FILTERS</span>
       </div>
       <div>
@@ -17,11 +17,18 @@
           (filtersChange)="onChange($event)"
         >
         </price-ranger-slider>
+        <div class="m--margin-top">
+          <ratings-filter
+            [(filters)]="filters"
+            (filtersChange)="onChange($event)"
+          >
+          </ratings-filter>
+        </div>
       </div>
     </div>
     <div class="tour-container">
       <div class="tour-header m--margin-bottom">
-        <h2 class="align-center">The best tours in the Country</h2>
+        <h2 class="title align-center">The best tours in the Country</h2>
       </div>
 
       <div class="search sm--margin-bottom">

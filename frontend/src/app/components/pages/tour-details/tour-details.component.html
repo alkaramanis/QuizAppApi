@@ -1,10 +1,31 @@
 <section *ngIf="tour" class="tour-section">
   <div class="tour container l-margin-top grid grid--2-col">
-    <img
-      class="tour-image"
-      [src]="imagePath + tour.imageCover"
-      alt="tour-images"
-    />
+    <div class="tour-img-container">
+      <img
+        #tourImg
+        class="tour-image"
+        [src]="
+          clickedPhotoImage
+            ? imagePath + clickedPhotoImage
+            : imagePath + tour.imageCover
+        "
+        alt="tour-images"
+      />
+
+      <span
+        [ngClass]="lastIndex === 1 ? 'disabled' : ''"
+        (click)="click(-1)"
+        class="button-back material-icons"
+        >arrow_back_ios</span
+      >
+
+      <span
+        [ngClass]="lastIndex === tour.images.length ? 'disabled' : ''"
+        (click)="click(1)"
+        class="button-forward material-icons"
+        >arrow_forward_ios</span
+      >
+    </div>
     <div class="tour-description">
       <h3 class="name align-center">{{ tour.name }}</h3>
       <p class="summary xxsm--margin-bottom">{{ tour.summary }}</p>
@@ -23,11 +44,31 @@
     </div>
   </div>
   <div class="container full-description">
+    <div class="images-container" #imagesContainer>
+      <div class="slider" #slider>
+        <img
+          #sliderImage
+          [attr.data-index]="i + 1"
+          [id]="tour.images[i]"
+          [ngStyle]="
+            i === 0
+              ? { 'border-bottom': '5px solid #558ee2' }
+              : { 'border-bottom': '' }
+          "
+          (click)="onClick($event)"
+          class="images"
+          *ngFor="let img of tour.images; let i = index"
+          [src]="imagePath + img"
+        />
+      </div>
+    </div>
     <div class="overview">
       <h2>OVERVIEW</h2>
       <p class="xxsm--margin-top">{{ tour.description }}</p>
     </div>
   </div>
-  <app-map [locations]="tour.locations"></app-map>
+  <div class="map-container">
+    <app-map [locations]="tour.locations"></app-map>
+  </div>
   <app-reviews [reviews]="tour.reviews"></app-reviews>
 </section>

@@ -1,0 +1,42 @@
+<div class="ratings-container" (click)="onClick($event)">
+  <span class="title">People rating</span>
+  <div class="input-container">
+    <input type="radio" value="4.5" />
+    <span>From 4.5 </span>
+    <star-rating
+      [value]="4.5"
+      [totalstars]="5"
+      checkedcolor="#e67e22"
+      uncheckedcolor="black"
+      size="22px"
+      [readonly]="true"
+    >
+    </star-rating>
+  </div>
+  <div class="input-container">
+    <input type="radio" value="4" />
+    <span>From 4</span>
+    <star-rating
+      [value]="4"
+      [totalstars]="5"
+      checkedcolor="#e67e22"
+      uncheckedcolor="black"
+      size="22px"
+      [readonly]="true"
+    >
+    </star-rating>
+  </div>
+  <div class="input-container">
+    <input type="radio" value="3" />
+    <span>From 3</span>
+    <star-rating
+      [value]="3"
+      [totalstars]="5"
+      checkedcolor="#e67e22"
+      uncheckedcolor="black"
+      size="22px"
+      [readonly]="true"
+    >
+    </star-rating>
+  </div>
+</div>

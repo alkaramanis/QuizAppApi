@@ -7,6 +7,8 @@ import { QueryParamModel } from 'src/shared/models/QueryParamModel';
   providedIn: 'root',
 })
 export class TourService {
+  private httpOptions = { withCredentials: true };
+
   getAll(filters: QueryParamModel[] = []): Observable<Tour[]> {
     let params = new HttpParams();
     filters.forEach((filter) => {
@@ -19,6 +21,9 @@ export class TourService {
   constructor(private http: HttpClient) {}
 
   getById(value: string): Observable<Tour> {
-    return this.http.get<Tour>(`http://127.0.0.1:8000/api/v1/tours/${value}`);
+    return this.http.get<Tour>(
+      `http://127.0.0.1:8000/api/v1/tours/${value}`,
+      this.httpOptions
+    );
   }
 }

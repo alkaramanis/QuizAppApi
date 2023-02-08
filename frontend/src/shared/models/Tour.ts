@@ -1,5 +1,6 @@
+import { LatLngExpression } from 'leaflet';
 import { Reviews } from './Reviews';
-
+import { ILeaflet } from '../interfaces/ILeaflet';
 enum difficulty {
   easy = 'Easy',
   medium = 'Medium',
@@ -16,6 +17,8 @@ export class Tour {
   public description: string;
   public imageCover!: string;
   public id!: string;
-  public locations: [{}];
+  public images: string[];
+  public locations: ILeaflet[];
+  public startLocation: ILeaflet[];
   public reviews: Reviews[];
 }

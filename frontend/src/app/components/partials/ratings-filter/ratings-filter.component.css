@@ -1,0 +1,20 @@
+.title {
+  display: inline-block;
+  margin-bottom: 1.6rem;
+  color: #555;
+  font-size: 1.1vw;
+  font-weight: 500;
+}
+.ratings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+.input-container {
+  width: 100%;
+  font-size: 0.93vw;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}

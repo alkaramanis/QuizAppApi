@@ -1,20 +1,10 @@
-.map-wrapper {
-  padding: 0 3.2rem;
-  max-width: 180rem;
-  margin: 0 auto;
-  margin-top: 9.6rem;
-}
 .map-container {
-  height: 800px;
-  width: 173.6rem;
-  margin: 1.6rem 0;
-}
-
-.map-frame {
-  border: 2px solid black;
-  height: 100%;
-}
-h2 {
-  margin-bottom: 2.6rem;
+  position: relative;
   text-align: center;
+  height: 80rem;
+  width: 100%;
+}
+.map {
+  width: 100%;
+  height: 100%;
 }

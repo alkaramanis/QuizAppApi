@@ -46,7 +46,7 @@ export class UserService {
           next: (userResponse) => {
             this.userSubject.next(userResponse.data.user);
             this.setUserToLocalStorage(userResponse.data.user);
-            this.authServ.loggedinSubject.next(true);
+            this.authServ.login();
             this.toastr.success('You successfully login');
           },
           error: (userResponse) =>

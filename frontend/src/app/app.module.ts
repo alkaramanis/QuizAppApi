@@ -30,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { SortingComponent } from './components/partials/sorting/sorting.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { PriceRangerSliderComponent } from './components/partials/price-ranger-slider/price-ranger-slider.component';
+import { RatingsFilterComponent } from './components/partials/ratings-filter/ratings-filter.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { PriceRangerSliderComponent } from './components/partials/price-ranger-s
     DefaultButtonComponent,
     SortingComponent,
     PriceRangerSliderComponent,
+    RatingsFilterComponent,
   ],
   imports: [
     BrowserModule,

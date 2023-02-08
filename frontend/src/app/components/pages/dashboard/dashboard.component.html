@@ -1,1 +1,22 @@
-
+<section>
+  <div class="container l--margin-top">
+    <h2 class="title">Recently Viewed Tours</h2>
+    <div class="tour-container">
+      <div class="tour-content" *ngFor="let tour of tour">
+        <a class="tour-link" routerLink="/tours/{{ tour.id }}">
+          <img class="tour-img" [src]="url + tour.imageCover" />
+          <div class="tour-info">
+            <P class="tour-name xxsm--margin-bottom align-center">{{
+              tour.name
+            }}</P>
+            <ul class="tour-details">
+              <li>⭐ Rating: {{ tour.ratingsAverage }}</li>
+              <li>💰 Price: {{ tour.price }} €</li>
+              <li>😫 Difficulty: {{ tour.difficulty }}</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
