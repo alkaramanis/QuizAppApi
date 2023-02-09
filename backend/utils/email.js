@@ -1,54 +1,58 @@
-// const nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
+const pug = require('pug');
 
-// module.exports = class Email {
-//   constructor(user, url) {
-//     this.to = user.email;
-//     this.firestName = user.name.split('')[0];
-//     this.url = url;
-//     this.from = `alex karamanis <${process.env.EMAIL_FROM}>`;
-//   }
+const { htmlToText } = require('html-to-text');
 
-//   createTransport() {
-//     if (process.env.NODE_ENV === 'production') {
-//       //sendGrid
-//       return 1;
-//     }
-//     return nodemailer.createTransport({
-//       //service: 'Gmail'
-//       host: process.env.EMAIL_HOST,
-//       port: process.env.EMAIL_PORT,
-//       auth: {
-//         user: process.env.EMAIL_USERNAME,
-//         pass: process.env.EMAIL_PASSWORD,
-//       },
-//       //ACTIVATE IN GMAIL "Less secure app" option
-//     });
-//   }
+module.exports = class Email {
+  constructor(user, url) {
+    this.to = user.email;
+    this.firstName = user.name.split(' ')[0];
+    this.url = url;
+    this.from = `alex karamanis <${process.env.EMAIL_FROM}>`;
+  }
 
-//   //  sent the actual email
-//   send(template, subject) {
-//     // 1) Render HTML based on pug template
+  newTransport() {
+    if (process.env.NODE_ENV === 'production') {
+      //sendGrid
+      return 1;
+    }
+    return nodemailer.createTransport({
+      //service: 'Gmail'
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
+      auth: {
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+      //ACTIVATE IN GMAIL "Less secure app" option
+    });
+  }
 
-//     // 2) Define email options
-//     const mailOptions = {
-//       from: 'alex karamanis <alexandroskaramanis@hotmail.com>',
-//       to: options.email,
-//       subject: options.subject,
-//       text: options.message,
-//       //html
-//     };
-//     // 3) Create transport and send email
-//   }
+  //  sent the actual email
+  async send(template, subject) {
+    // 1) Render HTML based on pug template
+    const html = pug.renderFile(`${__dirname}/../views/email/${template}.pug`, {
+      firstName: this.firstName,
+      url: this.url,
+      subject,
+    });
 
-//   sendWelcome() {
-//     this.send('welcome', 'welcome to the Natours Family!');
-//   }
-// };
-// const sendEmail = async (options) => {
-//   //2) define the email options
+    // 2) Define email options
+    const mailOptions = {
+      from: this.from,
+      to: this.to,
+      subject,
+      html,
+      text: htmlToText(html),
+    };
+    // 3) Create transport and send email
 
-//   // 3)Sending email
-//   await transporter.sendMail(mailOptions);
-// };
+    await this.newTransport().sendMail(mailOptions);
+  }
+
+  async sendWelcome() {
+    await this.send('welcome', 'welcome to the Natours Family!');
+  }
+};
 
 // module.exports = sendEmail;

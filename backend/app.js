@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
@@ -15,6 +16,8 @@ const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const AppError = require('./utils/appError');
 
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 app.use(
   cors({
     credentials: true,
