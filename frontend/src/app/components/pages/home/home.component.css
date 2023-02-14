@@ -5,14 +5,14 @@
   width: 100%;
 }
 .tour-details {
-  font-size: 0.9375vw;
+  font-size: clamp(1.5rem, 0.9375vw, 2rem);
   display: flex;
   list-style: none;
   flex-direction: column;
   gap: 1.8rem;
 }
 .tour-summary {
-  font-size: 0.9375vw;
+  font-size: clamp(1.5rem, 0.9375vw, 2rem);
   margin-bottom: 1.6rem;
   font-weight: 600;
   line-height: 2.2rem;
@@ -33,7 +33,7 @@
   box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
 }
 .tour-name {
-  font-size: 1.041vw;
+  font-size: clamp(1.5rem, 0.9375vw, 2rem);
   color: #e67e22;
   font-weight: 600;
 }
@@ -56,7 +56,7 @@
 }
 .title {
   margin-bottom: 2.0811vw;
-  font-size: 2.0811vw;
+  font-size: clamp(1.5rem, 0.9375vw, 2rem);
   font-weight: 600;
   background-image: linear-gradient(to right, #e67d22, #cf711f);
   background-clip: text;
@@ -74,8 +74,5 @@
 @media (max-width: 1250px) {
   .grid--3-col {
     grid-template-columns: 1fr 1fr;
-  }
-  .tour-content * {
-    font-size: 1.8rem !important;
   }
 }

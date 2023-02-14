@@ -32,7 +32,7 @@
       <span>Price: {{ cart.totalprice }}€</span>
       <span>Quantity: {{ cart.totalQuantity }}</span>
 
-      <button class="btn">Procced to checkout</button>
+      <app-checkout [cartItems]="cart.items"></app-checkout>
     </div>
   </div>
   <div>

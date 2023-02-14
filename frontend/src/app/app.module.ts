@@ -31,6 +31,7 @@ import { SortingComponent } from './components/partials/sorting/sorting.componen
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { PriceRangerSliderComponent } from './components/partials/price-ranger-slider/price-ranger-slider.component';
 import { RatingsFilterComponent } from './components/partials/ratings-filter/ratings-filter.component';
+import { CheckoutComponent } from './components/partials/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { RatingsFilterComponent } from './components/partials/ratings-filter/rat
     SortingComponent,
     PriceRangerSliderComponent,
     RatingsFilterComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

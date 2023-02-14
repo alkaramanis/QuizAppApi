@@ -11,6 +11,10 @@ export const RESET_PASSWORD_URL = BASE_URL + 'users/resetPassword/';
 export const SIGN_UP_URL = BASE_URL + 'users/signup';
 export const UPDATE_MY_PROFILE = BASE_URL + 'users/updateMe';
 export const UPDATE_PASSWORD = BASE_URL + 'users/updateMypassword';
+// -------------checkout-----------------------
+export const CHECKOUT_URL = BASE_URL + 'booking/checkout-session';
+export const CREATE_BOOKING_CHECKOUT = BASE_URL + 'booking/create-booking';
+export const GET_BOOKING = BASE_URL + 'booking/';
 // -----------profile---------------
 export const MY_PROFILE_EDIT_URL = BASE_URL + 'users/me';
 // ---------- images paths--------------
