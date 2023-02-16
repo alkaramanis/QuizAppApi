@@ -55,11 +55,11 @@ exports.createBookingCheckout = catchAsync(async (req, res, next) => {
     (obj) => (price = price + obj.price_data.unit_amount * obj.quantity)
   );
   if (!parsedOrder && !user) return next();
-  await Booking.create({ tour, user, price });
+  const booking = await Booking.create({ tour, user, price });
 
-  // res.redirect(req.originalUrl.split('?')[0]);
   res.status(200).json({
     status: 'success',
+    booking,
   });
 });
 exports.getMyTours = catchAsync(async (req, res, next) => {

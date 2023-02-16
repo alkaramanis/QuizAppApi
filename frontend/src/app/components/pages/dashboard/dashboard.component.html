@@ -1,5 +1,5 @@
 <section>
-  <div class="container l--margin-top">
+  <div *ngIf="this.user.lastToursSeen" class="container l--margin-top">
     <h2 class="title">Recently Viewed Tours</h2>
     <div class="tour-container">
       <div class="tour-content" *ngFor="let tour of tour">
@@ -20,3 +20,26 @@
     </div>
   </div>
 </section>
+<div class="booking-container">
+  <h2 class="title">MY BOOKINGS</h2>
+  <div class="booking-options">
+    <table>
+      <tr>
+        <th></th>
+      </tr>
+      <tr>
+        <th></th>
+      </tr>
+      <tr>
+        <th></th>
+      </tr>
+    </table>
+
+    <ul class="booking-list">
+      <li class="booking-list-items">Booking id</li>
+      <li class="booking-list-items">Tour/s</li>
+      <li class="booking-list-items">Status</li>
+      <li class="booking-list-items">Created At</li>
+    </ul>
+  </div>
+</div>

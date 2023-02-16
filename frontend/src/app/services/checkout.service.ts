@@ -26,7 +26,7 @@ export class CheckoutService {
       withCredentials: true,
     });
   }
-  getBooking(): Observable<any> {
+  getMyBookings(): Observable<any> {
     return this.http.get<any>(`${GET_BOOKING}`);
   }
 }

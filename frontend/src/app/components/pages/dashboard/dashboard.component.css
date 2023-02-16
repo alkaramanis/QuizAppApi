@@ -78,3 +78,20 @@ section {
   margin-top: 6.4rem;
   border: 1px solid rgb(231, 228, 228);
 }
+.booking-container {
+  margin-inline: auto;
+  max-width: fit-content;
+}
+.title {
+  display: inline-block;
+}
+.booking-options {
+}
+.booking-list {
+  list-style: none;
+  gap: 8rem;
+  display: flex;
+}
+.booking-list-items {
+  font-size: 1.6rem;
+}
