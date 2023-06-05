@@ -40,7 +40,7 @@ export class UserService {
     const body = { email, password };
 
     return this.http
-      .post<IUserResponse>(LOGIN_URL, body, this.httpOptions)
+      .post<IUserResponse>(LOGIN_URL, body, { withCredentials: true })
       .pipe(
         tap({
           next: (userResponse) => {

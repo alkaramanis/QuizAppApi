@@ -13,13 +13,16 @@ const signToken = (id) =>
 const createSendToken = function (user, statusCode, res) {
   const token = signToken(user._id);
   const cookieOpt = {
+    
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
-
-    httpOnly: true,
-  };
-  if (process.env.NODE_ENV === 'production') cookieOpt.secure = true;
+        httpOnly: true,
+	// sameSite: "none",
+	secure: true,
+	
+          };
+  //if (process.env.NODE_ENV === 'production') cookieOpt.secure = true;
   res.cookie('jwt', token, cookieOpt);
 
   //REMOVE THE PASSWORD FROR THE OUTPUT
@@ -41,9 +44,9 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordConfirm: req.body.passwordConfirm,
   });
 
-  const url = `${req.get('origin')}/myProfile`;
+  // const url = `${req.get('origin')}/myProfile`;
 
-  await new Email(newUser, url).sendWelcome();
+  // await new Email(newUser, url).sendWelcome();
 
   createSendToken(newUser, 201, res);
 });
@@ -51,10 +54,16 @@ exports.signup = catchAsync(async (req, res, next) => {
 exports.logout = catchAsync(async (req, res, next) => {
   const token = '';
   const cookieOpt = {
-    expires: new Date(Date.now()),
+    
+    expires: new Date(Date.now() + 10000),
     httpOnly: true,
+    sameSite: "none",
+    secure: true,
   };
+  console.log(req.cookies.jwt)
+
   res.cookie('jwt', token, cookieOpt);
+ console.log(req.cookies.jwt)
   res.status(201).json({
     status: 'success',
     token,
@@ -77,7 +86,7 @@ exports.login = catchAsync(async (req, res, next) => {
   }
 
   //3)if everything ok, sent token to clent
-
+  console.log(res.cookie)
   createSendToken(user, 201, res);
 });
 exports.protect = catchAsync(async (req, res, next) => {
@@ -90,6 +99,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   ) {
     token = req.headers.authorization.split(' ')[1];
   } else if (req.cookies.jwt) {
+    console.log(req.cookies.jwt)
     token = req.cookies.jwt;
   }
   if (!token)
@@ -116,6 +126,26 @@ exports.protect = catchAsync(async (req, res, next) => {
   req.user = currentUser;
   next();
 });
+
+  exports.isLoggedIn =  catchAsync(async(req, res, next) => {
+    if(req.cookies.jwt) {
+      const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
+      const currentUser = await User.findById(decoded.id);
+      if (!currentUser) {
+        return next()
+      }
+      if (currentUser.changePasswordAfter(decoded.iat)) {
+        return next();
+    }
+    // res.locals.user = currentUser
+    req.body.createdBy = currentUser._id
+    res.locals.user = currentUser
+    if(req.originalUrl === '/')
+    res.redirect('/createQuestion');
+  }
+    next()
+  })
+
 // eslint-disable-next-line arrow-body-style
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {

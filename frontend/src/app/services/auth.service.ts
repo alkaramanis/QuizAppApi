@@ -8,16 +8,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AuthService {
   public loggedinSubject: BehaviorSubject<boolean> = new BehaviorSubject(
-    this.loggedIn()
+    false
   );
 
   constructor(private cookieServ: CookieService) {}
 
-  loggedIn(): boolean {
-    this.cookieServ.set('jwt', 'loggedout');
-    console.log(this.cookieServ.get('jwt'));
-    return !this.cookieServ.get('jwt');
-  }
+  
   login() {
     this.loggedinSubject.next(true);
   }

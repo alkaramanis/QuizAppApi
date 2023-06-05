@@ -1,4 +1,5 @@
 const dotenv = require('dotenv');
+const schedule = require('node-schedule')
 
 const mongoose = require('mongoose');
 
@@ -26,11 +27,12 @@ mongoose
     console.log(process.env.NODE_ENV);
   });
 
+  
 //creating a new connection for the model
 
 // creating the document
 
-const port = process.env.port || 3000;
+const port = process.env.port || 4200;
 const server = app.listen(port, () => {
   console.log(`App running on ${port}...`);
 });

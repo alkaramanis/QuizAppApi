@@ -1,0 +1,58 @@
+doctype html
+html
+    head 
+        meta(charset="UTF-8") 
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title The Ultimate Sport Quiz
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel='shortcut icon' type='image/png' href ='img/favicon.png')
+        link(href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet")
+        
+
+body
+    main.main
+        .login-form
+            h2.heading-secondary.ma-bt-lg.center Create Your Amazing Question
+            form.form
+                .form__group
+                    label.form__label(for='Content') Question Content  
+                    textarea#content.form__input(placeholder='Please write your amazing question', rows='4' required)
+                .form__group
+                    label.form__label(for='category') Question Category 
+                    select#category.form__input(name='category')
+                        option(value="basketball") Basketball
+                        option(value="football") Football
+                .form__group  
+                    label.form__label(for='difficulty') Question Difficulty 
+                    select#difficulty.form__input(name='difficulty')
+                        option(value="easy") Easy 
+                        option(value="medium") Medium
+                        option(value="hard") Hard
+                .form__group.center    
+                    h2.heading-secondary Answers
+                .form__group.center      
+                    input#answer1.form__input(type='text', placeholder='1) First answer', required)                    
+                .form__group.center    
+                    input#answer2.form__input(type='text', placeholder='2) Second answer', required)
+                .form__group.center    
+                    input#answer3.form__input(type='text', placeholder='3) Third answer', required)
+                .form__group.center 
+                    input#answer4.form__input(type='text', placeholder='4) Forth answer', required)
+                .form__group.center
+                    label.form__label(for='correctAnswer') Select Correct Answer 
+                    select#correctAnswer.form__input(name='correctAnswer')
+                        option(value="0") First
+                        option(value="1") Second
+                        option(value="2") Third
+                        option(value="3") Forth
+                .form__group.center        
+                    button.btn.btn--green Create Question
+        div.ma-bt-lg.center.hidden             
+            h2.heading-secondary Your Question was created succesfully
+        div.center.hidden 
+            h2.heading-secondary.xxsm Thank you  
+            h2.heading-secondary.xxsm=  user.name   
+            h2.heading-secondary  You are the best !!
+
+script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer")
+script(src='/js/createQuestion.js') 

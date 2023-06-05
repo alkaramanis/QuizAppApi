@@ -4,6 +4,8 @@ const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const factory = require('./handlerFactory');
+const WeeklyInfo = require('../models/weeklyInfo')
+const notification = require('../utils/notifications')
 
 // THIS IS THE STEPS TO CONFIGURE MULTER
 
@@ -67,8 +69,20 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     );
   }
   // 2) filtering unwanted field names that we dont want to be updated
-
-  const filteredBody = filterObj(req.body, 'name', 'email');
+ 
+  const filteredBody = filterObj(req.body, 'name', 'email', 'rank', 'avatar', 'exponentPushToken');
+  if(req.body.rank === 0) {
+    body = {
+      currentLegends: currentLegends+1,
+      legendsId: legendsId.push(req.user.id)
+      
+    }
+   const updatedWeek = await findOneAndUpdate({current: true}, body, {
+      new: true,
+      runValidators: true,
+    })
+  notification.sendPushNotification(updatedWeek)   
+  }
   if (req.file) filteredBody.photo = req.file.filename;
   // 3) Update user document
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {

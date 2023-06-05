@@ -62,7 +62,11 @@ exports.createBookingCheckout = catchAsync(async (req, res, next) => {
     booking,
   });
 });
-exports.getMyTours = catchAsync(async (req, res, next) => {
+exports.setQueryParamUser = catchAsync(async (req, res, next) => {
+  
+  if(req.originalUrl.includes('getMyBookings') || req.originalUrl.includes('checkIfVisited'))
+  
+  
   req.query = { user: req.user.id };
   // req.guery.user = req.user.name;
   next();

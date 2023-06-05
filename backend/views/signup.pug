@@ -1,0 +1,34 @@
+doctype html
+html
+    head 
+        meta(charset="UTF-8") 
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title The Ultimate Sport Quiz
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel='shortcut icon' type='image/png' href ='img/favicon.png')
+        link(href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet")
+        
+
+body
+    main.main
+        .login-form
+            h2.heading-secondary.ma-bt-lg.block.center Please Sign up
+            form.form
+                .form__group
+                    label.form__label(for='Username') Username 
+                    input#name.form__input(type="text" placeholder='Please write your Username', required)
+                .form__group
+                    label.form__label(for='Email') Email
+                    input#email.form__input(type="email" placeholder='you@example.com', required)
+                .form__group
+                    label.form__label(for='Password') Password
+                    input#password.form__input(type="password" placeholder ='••••••••', required)
+                .form__group
+                    label.form__label(for='Password Confirm ') Password Confirm 
+                    input#passwordConfirm.form__input(type="password" placeholder='••••••••', required)
+                .form__group.center
+                    button.btn.btn--green Sign up
+        
+
+script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer")
+script(src='/js/signup.js') 

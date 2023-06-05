@@ -15,6 +15,13 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     validate: [validator.isEmail, 'Please provide a valid email'],
   },
+  rank: {
+  type: Number,
+  default: 25
+  },
+  avatar: {
+  type: String,
+  },
   photo: {
     type: String,
     default: 'default.jpg',
@@ -42,6 +49,9 @@ const userSchema = new mongoose.Schema({
     },
   },
   passwordChangeAt: Date,
+  exponentPushToken: {
+     type: String
+    },
   passwordResetToken: String,
   passwordResetExpires: Date,
   active: {
