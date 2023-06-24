@@ -1,20 +1,24 @@
 const mongoose = require('mongoose');
 
 const weeklyInfoSchema = new mongoose.Schema({
-    legendsGonnaGetPaid: Number,
-    currentLegends: Number,
-    legendsId:[
-        {
-          type: mongoose.Schema.ObjectId,
-          ref: 'User',  
-        },
-      ],
-    current: {
-        type: Boolean,
-        default: true
-    }  
-})
+  legendsGonnaGetPaid: Number,
+  currentLegends: {
+    type: Number,
+    default: 0,
+  },
+  legendsId: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
+      default: [],
+    },
+  ],
+  current: {
+    type: Boolean,
+    default: true,
+  },
+});
 
-const WeeklyInfo = mongoose.model(' WeeklyInfo' , weeklyInfoSchema)
+const WeeklyInfo = mongoose.model('weeklyinfo', weeklyInfoSchema);
 
-module.exports =  WeeklyInfo;
+module.exports = WeeklyInfo;

@@ -45,7 +45,18 @@ exports.createOne = (Model) =>
       },
     });
   });
-
+exports.createMany = (Model) =>
+  catchAsync(async (req, res, next) => {
+    const response = await req.body.map(async (el) => await Model.create(el));
+    const finalRes = Promise.all(response);
+    console.log(finalRes);
+    res.status(201).json({
+      status: 'success',
+      data: {
+        data: finalRes,
+      },
+    });
+  });
 exports.getOne = (Model, popOptions) =>
   catchAsync(async (req, res, next) => {
     let query = Model.findById(req.params.id);

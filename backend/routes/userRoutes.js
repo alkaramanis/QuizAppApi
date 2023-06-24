@@ -31,7 +31,7 @@ router.patch(
   userController.reziseUserPhoto,
   userController.updateMe
 );
-router.delete('/deleteMe', userController.deleteMe);
+router.delete('/deleteMe', userController.deleteUser);
 
 //---------------- ALL ABOUT INTERACTING WITH USERS
 //// 2) ROUTE HANDLERS
