@@ -2,14 +2,15 @@ const express = require('express');
 const authController = require('../controllers/authController');
 const tourController = require('../controllers/tourController');
 const reviewRouter = require('./reviewRoutes');
-const bookingRouter = require('./bookingRoutes')
+const bookingRouter = require('./bookingRoutes');
+
 const router = express.Router();
 
 // router.param('id', tourController.checkID);
 
 // We are basically saying that if this path use the reviewRouter
 router.use('/:tourId/reviews', reviewRouter);
-router.use('/:tourId/checkIfVisited', bookingRouter)
+router.use('/:tourId/checkIfVisited', bookingRouter);
 
 router
   .route('/top-5-cheap')

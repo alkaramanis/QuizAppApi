@@ -4,8 +4,8 @@ const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const factory = require('./handlerFactory');
-const WeeklyInfo = require('../models/weeklyInfo')
-const notification = require('../utils/notifications')
+const WeeklyInfo = require('../models/weeklyInfo');
+const notification = require('../utils/notifications');
 
 // THIS IS THE STEPS TO CONFIGURE MULTER
 
@@ -69,19 +69,27 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     );
   }
   // 2) filtering unwanted field names that we dont want to be updated
- 
-  const filteredBody = filterObj(req.body, 'name', 'email', 'rank', 'avatar', 'exponentPushToken');
-  if(req.body.rank === 0) {
-    body = {
-      currentLegends: currentLegends+1,
-      legendsId: legendsId.push(req.user.id)
-      
+
+  const filteredBody = filterObj(
+    req.body,
+    'name',
+    'email',
+    'rank',
+    'avatar',
+    'exponentPushToken'
+  );
+
+  if (req.body.rank === 0) {
+    const weekToBeUpdate = await WeeklyInfo.findOne({ current: true });
+    console.log(weekToBeUpdate);
+
+    if (weekToBeUpdate) {
+      weekToBeUpdate.legendsId.push(req.user.id);
+      weekToBeUpdate.currentLegends += 1;
+      await weekToBeUpdate.save();
+
+      notification.sendPushNotification(weekToBeUpdate);
     }
-   const updatedWeek = await findOneAndUpdate({current: true}, body, {
-      new: true,
-      runValidators: true,
-    })
-  notification.sendPushNotification(updatedWeek)   
   }
   if (req.file) filteredBody.photo = req.file.filename;
   // 3) Update user document
@@ -94,13 +102,6 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     data: {
       user: updatedUser,
     },
-  });
-});
-exports.deleteMe = catchAsync(async (req, res, next) => {
-  await User.findByIdAndUpdate(req.user.id, { active: false });
-  res.status(204).json({
-    status: 'success',
-    data: null,
   });
 });
 

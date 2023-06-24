@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-const schedule = require('node-schedule')
+// const schedule = require('node-schedule')
 
 const mongoose = require('mongoose');
 
@@ -27,7 +27,6 @@ mongoose
     console.log(process.env.NODE_ENV);
   });
 
-  
 //creating a new connection for the model
 
 // creating the document

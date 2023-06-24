@@ -3,6 +3,7 @@ const Booking = require('../models/bookingModel');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
 
+// This is for redirecting to stripe page
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   // 1) Get the currenttly booked tour
 
@@ -44,6 +45,31 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   });
 });
 
+// With this the user stays on my app the whole time. No redirection
+exports.getPaymentIntent = catchAsync(async (req, res, next) => {
+  const customer = await stripe.customers.create();
+  const ephemeralKey = await stripe.ephemeralKeys.create(
+    { customer: customer.id },
+    { apiVersion: '2022-11-15' }
+  );
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: 1099,
+    currency: 'eur',
+    customer: customer.id,
+    automatic_payment_methods: {
+      enabled: true,
+    },
+  });
+
+  res.json({
+    paymentIntent: paymentIntent.client_secret,
+    ephemeralKey: ephemeralKey.secret,
+    customer: customer.id,
+    publishableKey:
+      'pk_test_51MZX6DDVoS92akuf3I5fxCo6YdMBvnrbcMqL7gqgotqZhQyB2x2x4lxa8S5QisSPZ220y9f2Lk9tHygsnejrVUoa00jjPZMW0O',
+  });
+});
+
 exports.createBookingCheckout = catchAsync(async (req, res, next) => {
   const { order, tour: strTour } = req.query;
   const user = req.user._id;
@@ -63,11 +89,11 @@ exports.createBookingCheckout = catchAsync(async (req, res, next) => {
   });
 });
 exports.setQueryParamUser = catchAsync(async (req, res, next) => {
-  
-  if(req.originalUrl.includes('getMyBookings') || req.originalUrl.includes('checkIfVisited'))
-  
-  
-  req.query = { user: req.user.id };
+  if (
+    req.originalUrl.includes('getMyBookings') ||
+    req.originalUrl.includes('checkIfVisited')
+  )
+    req.query = { user: req.user.id };
   // req.guery.user = req.user.name;
   next();
 });
